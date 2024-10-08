@@ -6,6 +6,8 @@ using static GameConfig;
 
 public static class GameConfig
 {
+    //#커밋테스트용 주석
+
     //게임 버전 
     public static readonly string GameVersion = "1.0";
 
