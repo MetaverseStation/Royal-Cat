@@ -12,9 +12,9 @@ public class Stone : MonoBehaviourPun
         {
             // 플레이어의 체력을 깎습니다.
             PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
+            if (playerHealth != null && PhotonNetwork.IsMasterClient)
             {
-                photonView.RPC("SyncDamage", RpcTarget.All, collision.gameObject.GetComponent<PhotonView>().ViewID, 10);
+                photonView.RPC("SyncDamage", RpcTarget.All, playerHealth.photonView.ViewID, 10);
             }
 
         }

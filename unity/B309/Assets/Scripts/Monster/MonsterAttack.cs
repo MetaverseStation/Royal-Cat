@@ -256,6 +256,7 @@ public class MonsterAttack : MonoBehaviourPun
                 _monsterAnimator.SetTrigger("RangeAttack");
                 yield return new WaitForSeconds(1f);
                 _targetPlayer.GetComponent<PlayerHealth>().OnDamage(attackDamage);
+                photonView.RPC("AttackSync", RpcTarget.All, _targetPlayer.GetComponent<PlayerHealth>().photonView.ViewID, attackDamage);
             }
             else
             {
@@ -348,9 +349,9 @@ public class MonsterAttack : MonoBehaviourPun
         {
             // 충돌한 플레이어에 대한 정보를 마스터 클라이언트로 전달
             PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
+            if (playerHealth != null && PhotonNetwork.IsMasterClient)
             {
-                playerHealth.OnDamage(attackDamage);
+                photonView.RPC("AttackSync", RpcTarget.All, playerHealth.photonView.ViewID, attackDamage);
             }
         }
     }
@@ -361,10 +362,24 @@ public class MonsterAttack : MonoBehaviourPun
         {
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
 
-            if (playerHealth != null)
+            if (playerHealth != null && PhotonNetwork.IsMasterClient)
             {
                 // 플레이어에게 데미지 입힘
-                playerHealth.OnDamage(attackDamage);
+                photonView.RPC("AttackSync", RpcTarget.All, playerHealth.photonView.ViewID, attackDamage);
+            }
+        }
+    }
+
+    [PunRPC]
+    private void AttackSync(int targetPlayerID, float damage)
+    {
+        PhotonView targetPhotonView = PhotonView.Find(targetPlayerID);
+        if (targetPhotonView != null)
+        {
+            PlayerHealth playerHealth = targetPhotonView.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.OnDamage(damage);
             }
         }
     }
