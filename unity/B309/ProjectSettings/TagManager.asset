@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Bush
+  - Bullet
+  - throwingObject
+  - Monster
+  - bushField
+  - Missile
+  - Skill
+  - Weapon
+  - Buff
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - ThrowingObject
+  - Water
+  - UI
+  - Wall
+  - Ground
+  - Ghost
+  - WallMaria
+  - UI3D
+  - Bush
+  - WaterWall
+  - WinnerUI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

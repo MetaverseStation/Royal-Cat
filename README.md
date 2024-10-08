@@ -1,93 +1,159 @@
-# UnityTest
+# Loyal Cat
 
+## Ⅰ. 프로젝트 소개
 
+### **📌 게임 배경**
 
-## Getting started
+## 고양이 왕국의 왕이 되기 위한 6마리 고양이의 생선 튀기는 싸움이 시작된다!
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+```bash
+지구로부터 멀리 떨어진 고양이 별의 고양이 왕국.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+그 곳에는 모든 고양이들이 평화롭게 살아가는 왕국이 존재하고 있었다.
 
-## Add your files
+어느날, 고양이 왕국의 고양이 왕이 갑작스럽게 죽은 뒤, 왕의 유서가
+공개되었는데..!
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+“용맹한 6마리의 고양이 중 가장 강한 고양이가 다음 왕이 될 것이다“
 
+과연 고양이 왕국의 다음 왕이 될 고양이는 누가 될 것인가!!! 빰빠빰
 ```
-cd existing_repo
-git remote add origin https://lab.ssafy.com/ssafy_11th/unitytest.git
-git branch -M master
-git push -uf origin master
-```
 
-## Integrate with your tools
+## Ⅱ. 게임 소개
 
-- [ ] [Set up project integrations](https://lab.ssafy.com/ssafy_11th/unitytest/-/settings/integrations)
+### 01. 게임 시작
 
-## Collaborate with your team
+#### 시작화면
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+<img src="./docs/StartScene.PNG" alt="StartScene" width="600px">
+<br/>
+- 로그인을 통해 게임 로비로 입장
 
-## Test and Deploy
+#### 로비
 
-Use the built-in continuous integration in GitLab.
+<img src="./docs/Lobby.PNG" alt="lobby" width="600px">
+<br/>
+- 로비에서 대기방 생성 및 찾기 가능
+<br/>
+- 공개방과 비밀방으로 구분되며 비밀방은 비밀번호를 입력해야 입장 가능
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+#### 대기방
 
-***
+<img src="./docs/Room.PNG" alt="watingRoom" width="600px">
+<br/>
+- 방 인원들은 Ready 버튼으로 게임 준비
+<br/>
+- 방장은 인원들이 모두 Ready 버튼 클릭 시 Start 버튼으로 게임 시작 가능
+<br/>
+- 플레이할 맵과 캐릭터 스킨을 고를 수 있음
 
-# Editing this README
+### 02. 플레이어 기본 조작 🏃‍♀️
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+#### 플레이어 이동
 
-## Suggestions for a good README
+<img src="./docs/move.gif" alt="move" width="300px">
+<br/>
+ WASD 또는 방향키를 통해 상하좌우로 이동 가능
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+#### 구르기
 
-## Name
-Choose a self-explaining name for your project.
+<img src="./docs/dodge.gif" alt="dodge" width="300px">
+<br/>
+ SPACE BAR 키를 통해 빠른 속도로 구르기 가능
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+#### 공격
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+<img src="./docs/attack.gif" alt="attack" width="300px">
+<br/>
+ 마우스로 투사체를 조준 후 클릭하여 발사 가능, 상대방 피격 시 데미지 부여
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+### 03. 인게임 요소
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+#### 아이템 상자
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+<img src="./docs/itemBox.gif" alt="itemBox" width="300px">
+<br/>
+아이템 상자를 피격하여 투사체, 버프 아이템 획득
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+#### 부쉬
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+<img src="./docs/bush.gif" alt="bush" width="300px">
+<br/>
+부쉬 진입 시 타 플레이어에게 보이지 않는 은신 기능 제공
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+#### 몬스터
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+<br/>
+플레이어를 괴롭히며 처치 시 스킬샷과 같은 아이템 획득
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+### 04. 아이템
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+<img src="./docs/Items.png" alt="Item" width="600px">
 
-## License
-For open source projects, say how it is licensed.
+#### 버프
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+- 플레이어가 획득 시 능력치가 증가하는 아이템
+- 체력 회복, 공격력 증가, 방어력 증가, 이동속도 증가
+
+#### 투사체
+
+- 플레이어를 공격할 때 특수효과가 발동하는 생선 아이템
+- 문어(시야 차단), 랍스터(넉백), 해파리(이동 반전), 거북이(느려짐), 꽃게(출혈)
+
+#### 스킬샷
+
+- 플레이어가 획득 시 투사체 발사 방식을 변경하는 아이템
+- 멀티샷, 포물선 샷
+
+## Ⅲ. 기술 스택
+
+### SERVER
+
+- Photon PUN2
+- Photon CHAT
+- SpringBoot3
+- MySQL
+
+### Front-End
+
+- Unity
+- React.js
+
+### Infra
+
+- AWS Redis
+- Nginx
+- AWS EC2
+- Docker
+
+### Tools
+
+- GitLab
+- Notion
+- Jira
+- Figma
+- MatterMost
+
+## Ⅳ. 산출물
+
+### 📃 ERD
+
+### ⚙ 아키텍쳐(임시)
+
+<img src="./docs/Architecture.png" alt="Architecture" width="300px">
+
+## V. 팀원 소개 및 회고
+
+<img src="./docs/LoyalCat_Team.PNG" alt="LoyalCat_Team" width="300px">
+
+### 진현지
+
+### 정원빈
+
+### 김성현
+
+### 현준호
+
+### 오성윤
+
+### 오승준
