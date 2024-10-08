@@ -5,12 +5,16 @@ using System.Collections;
 
 public class BushField : MonoBehaviourPunCallbacks
 {
+    // 사람
     private PhotonView _localPlayerPhotonView;
     private PhotonView _photonView;
     [SerializeField] private float _visibilityRange = 2f;
+
+    // 부쉬
     private float _transparentAlpha = 0.1f;
     private Dictionary<Bush, float> _transparentBushes = new Dictionary<Bush, float>(); // 투명해진 부쉬들을 추적
     [SerializeField] private bool _isInBush;
+    private Coroutine _exitCoroutine;
 
     void Start()
     {    
@@ -20,14 +24,15 @@ public class BushField : MonoBehaviourPunCallbacks
         Invoke("InitializeLocalPlayerPhotonView", 2f);
     }
 
-    void Update(){
-        if(_isInBush){
+    void Update()
+    {
+         if(_isInBush){
             UpdatePlayerVisibility();
             UpdateBushTransparency();
         }
     }
     
-    void InitializeLocalPlayerPhotonView()
+    void InitializeLocalPlayerPhotonView() 
     {
         GameObject localPlayerObject = GameObject.FindGameObjectWithTag("Player");
 
@@ -48,8 +53,8 @@ void OnTriggerEnter(Collider other)
         {
                 
             // 가시성 업데이트 시작
-            SetVisibility(photonView, false);
             _isInBush = true;
+            SetVisibility(photonView, false);
         }
     }
 }
@@ -65,20 +70,46 @@ void OnTriggerExit(Collider other)
         if (photonView != null && photonView.IsMine)
         {
           
+                Debug.Log("OnTriggerExit 호출: "+photonView.ViewID);
                 // Null 체크 추가
-                _isInBush = false;
-                // 가시필드를 나간 플레이어의 가시성을 다시 원래대로 설정
-                SetVisibility(photonView, true);
-                // 부쉬 필드 내 모든 Bush 오브젝트의 투명도를 초기화
-                ResetAllBushesTransparency();
-                // 부쉬 필드에 남아있는 플레이어의 가시성을 다시 안보이도록 설정
+
+                // _isInBush = false;
+                // // 부쉬 필드 내 모든 Bush 오브젝트의 투명도를 초기화
+                // ResetAllBushesTransparency();
+                // // 가시필드를 나간 플레이어의 가시성을 다시 원래대로 설정
+                // SetVisibility(photonView, true);
+                // // 부쉬 필드에 남아있는 플레이어의 가시성을 다시 안보이도록 설정
                 
-                // 왜 0.3초부터는 안돼.....
-                Invoke("HidePlayersInBush",0.4f);
+                // // 왜 0.3초부터는 안돼.....
+                // Invoke("HidePlayersInBush",0.4f);
+                 if (_exitCoroutine != null)
+                {
+                    StopCoroutine(_exitCoroutine);
+                }
+                
+                // 새 코루틴 시작
+                _exitCoroutine = StartCoroutine(ExitBushCoroutine(photonView));
         }
     }
 }
-
+    private IEnumerator ExitBushCoroutine(PhotonView photonView)
+    {
+        
+        _isInBush = false;
+        // 한 프레임 대기
+        // 코루틴을 활용해버려 ㅠ
+        yield return new WaitForSeconds(0.2f);
+        
+        // 부쉬 필드 내 모든 Bush 오브젝트의 투명도를 초기화
+        ResetAllBushesTransparency();
+        
+        // 가시필드를 나간 플레이어의 가시성을 다시 원래대로 설정
+        SetVisibility(photonView, true);
+        
+        // 부쉬 필드에 남아있는 플레이어의 가시성을 다시 안보이도록 설정
+        yield return new WaitForSeconds(0.2f);
+        HidePlayersInBush();
+    }
 private void ResetAllBushesTransparency()
 {
     Bush[] bushes = GetComponentsInChildren<Bush>();
@@ -94,6 +125,7 @@ private void SetVisibility(PhotonView playerView, bool isVisible)
 {
     if (playerView != null)
     {
+        Debug.Log("SetVisibility 호출: "+playerView.ViewID + " " + isVisible);
         // 현재 클라이언트를 제외하고 다른 클라이언트에게만 RPC 호출
         playerView.RPC("SetVisibility", RpcTarget.OthersBuffered, isVisible);
     }
@@ -164,6 +196,7 @@ private void SetVisibility(PhotonView playerView, bool isVisible)
                 otherPlayerView.gameObject.GetComponent<PlayerMovement>().SetVisibility(shouldSee);
 
                 // 다른 플레이어에게 로컬 플레이어의 가시성 업데이트 요청
+                Debug.Log("UpdatePlayerVisibility 호출: "+otherPlayerView.ViewID +  "에게 "+ _localPlayerPhotonView.ViewID + "가 " + shouldSee);
                 _localPlayerPhotonView.RPC("SetVisibilityToPlayer", otherPlayerView.Owner, _localPlayerPhotonView.ViewID, shouldSee);
             }
         }
@@ -181,6 +214,7 @@ private void SetVisibility(PhotonView playerView, bool isVisible)
                 PhotonView otherPlayerView = PhotonView.Find(viewID);
                 if (otherPlayerView != null && otherPlayerView != _localPlayerPhotonView)
                 {
+                    Debug.Log("HidePlayersInBush 호출: "+otherPlayerView.ViewID + " " + false);
                     _localPlayerPhotonView.RPC("SetVisibilityToPlayer", _localPlayerPhotonView.Owner,otherPlayerView.ViewID, false);
                 }
             }
