@@ -113,20 +113,20 @@ public class LoginForm : MonoBehaviour
 
     private void OnClickLogin()
     {
-        JoinLobby();
+        //JoinLobby();
+        //###############
+        string id = _inputID.text;
+        string pw = _inputPW.text;
 
-        //string id = _inputID.text;
-        //string pw = _inputPW.text;
-
-        //// 예시: 간단한 유효성 검사
-        //if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(pw))
-        //{
-        //    _infoText.text = "ID or PW is Empty";
-        //}
-        //else
-        //{
-        //    StartCoroutine(IsDuplicateLogin(id, pw));
-        //}
+        // 예시: 간단한 유효성 검사
+        if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(pw))
+        {
+            _infoText.text = "ID or PW is Empty";
+        }
+        else
+        {
+            StartCoroutine(IsDuplicateLogin(id, pw));
+        }
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
     }
 
