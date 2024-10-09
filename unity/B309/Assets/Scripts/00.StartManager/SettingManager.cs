@@ -20,7 +20,8 @@ public class SettingManager : MonoBehaviour
         volumeSlider.onValueChanged.AddListener(SetVolume);
         muteToggle.onValueChanged.AddListener(ToggleMute);
         resolutionDropdown.onValueChanged.AddListener(ChangeResolution);
-        fullScreenToggle.onValueChanged.AddListener(ToggleFullscreen);        
+
+        fullScreenToggle.onValueChanged.AddListener(ToggleFullscreen)
     }
     
     void Update()
