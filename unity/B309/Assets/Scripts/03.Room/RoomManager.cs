@@ -262,7 +262,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
                     }
 
                     //플레이어 본인에 해당한다면 해당 레디패널에 권한 부여
-
+                }
+                else
+                {
+                    Transform playerNameText = playerCard.transform.Find("PlayerPanel/NameText");
+                    playerNameText.GetComponent<TextMeshProUGUI>().text = "";
                 }
             }
         }
@@ -393,13 +397,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             playerPanel.SetActive(true);
             closedPanel.SetActive(false);
-            //_characterList[avatarIdx].SetActive(true);
         }
         //닫힌 패널
         else
         {
-            playerPanel.gameObject.SetActive(false);
-            closedPanel.gameObject.SetActive(true);
+            playerPanel.SetActive(false);
+            closedPanel.SetActive(true);
             //_characterList[avatarIdx].SetActive(false);
         }
         return playerItem;
