@@ -3181,6 +3181,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699080264786406387, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1167570883676012425, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -3243,7 +3247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3701734522828558610, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000008583069
+      value: 0.000019714236
       objectReference: {fileID: 0}
     - target: {fileID: 5411505210254940527, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4250,6 +4254,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1515225546482490454, guid: 85144068239656945845d99c3c458321, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1544939066002888925, guid: 85144068239656945845d99c3c458321, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -4294,9 +4302,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2124030912144109665, guid: 85144068239656945845d99c3c458321, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156007168170970662, guid: 85144068239656945845d99c3c458321, type: 3}
+      propertyPath: sceneViewId
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3723664362786974546, guid: 85144068239656945845d99c3c458321, type: 3}
       propertyPath: sceneViewId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962684400921210374, guid: 85144068239656945845d99c3c458321, type: 3}
+      propertyPath: sceneViewId
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403763363712958360, guid: 85144068239656945845d99c3c458321, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287911135733744940, guid: 85144068239656945845d99c3c458321, type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072585443315842641, guid: 85144068239656945845d99c3c458321, type: 3}
+      propertyPath: sceneViewId
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

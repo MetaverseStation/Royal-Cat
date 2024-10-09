@@ -111,7 +111,7 @@ public class LoginForm : MonoBehaviour
         }
     }
 
-    private async void OnClickLogin()
+    private void OnClickLogin()
     {
         //JoinLobby();
 
@@ -125,46 +125,46 @@ public class LoginForm : MonoBehaviour
         }
         else
         {
-            bool isDuplicate = await IsDuplicateLogin(id);
-            
-            // 로그인 중복 체크
-            if (isDuplicate)
-            {
-                // 이미 로그인 중 입니다.
-                _infoText.text = "Already logined account";
-            }
-            else
-            {
-                // 로그인 요청
-                StartCoroutine(Login(id, pw));
-            }
+            StartCoroutine(IsDuplicateLogin(id, pw));
         }
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
     }
 
     // 중복 로그인 확인
-    private async Task<bool> IsDuplicateLogin(string userId)
+    private IEnumerator IsDuplicateLogin(string userId, string password)
     {
-        using (UnityWebRequest request = new UnityWebRequest("http://j11b309.p.ssafy.io/api/member/login/" + userId, "GET"))
+        Debug.Log(userId + " " + password);
+        UnityWebRequest request = new UnityWebRequest("http://j11b309.p.ssafy.io/api/member/login/" + userId, "GET");
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
+            // 서버에서 응답 받은 boolean 값 확인
+            string jsonResponse = request.downloadHandler.text;
 
-            var operation = request.SendWebRequest();
-
-            while (!operation.isDone)
+            // 응답이 "true" 또는 "false"일 경우 처리
+            if (bool.TryParse(jsonResponse, out bool isDuplicate))
             {
-                await Task.Yield();
+                // 로그인 중복 체크
+                if (isDuplicate)
+                {
+                    // 이미 로그인 중 입니다.
+                    _infoText.text = "Already logined account";
+                }
+                else
+                {
+                    // 로그인 요청
+                    StartCoroutine(Login(userId, password));
+                }
             }
-
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                return false;
-            }
-            else
-            {
-                return true; // 요청 실패 시 중복 로그인으로 간주
-            }
+        }
+        else
+        {
+            Debug.LogError("서버 요청 실패: " + request.error);
+            _infoText.text = "no user";
         }
     }
 
@@ -205,9 +205,6 @@ public class LoginForm : MonoBehaviour
                 // 토큰 및 사용자 정보 저장
                 User.Nickname = response.nickname;
                 User.UserName = id;
-                // PlayerPrefs.SetString("UserName", id);
-                // PlayerPrefs.SetString("Nickname", response.nickname);
-                // PlayerPrefs.Save(); // 변경사항 저장
 
                 // 로비 이동
                 _infoText.text = "";
@@ -217,11 +214,9 @@ public class LoginForm : MonoBehaviour
         else
         {
             Debug.LogError($"Error: {request.error}");
-
             _infoText.text = "wrong id or password";
         }
     }
-
 
     private void OnClickSignUp()
     {
