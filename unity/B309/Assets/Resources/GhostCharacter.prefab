@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 9052927550409434555}
   m_Layer: 8
   m_Name: GhostCharacter
-  m_TagString: Untagged
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,10 +66,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4293a779f7505498b5c684d90a0aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 5
   moveSpeed: 5
   rotationSpeed: 10
   _isDodge: 0
   _isReverse: 0
+  isSlow: 0
+  playerTag: {fileID: 0}
 --- !u!114 &-8770393307763099622
 MonoBehaviour:
   m_ObjectHideFlags: 0

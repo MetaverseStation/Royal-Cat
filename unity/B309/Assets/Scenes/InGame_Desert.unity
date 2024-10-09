@@ -3309,6 +3309,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6199793689213894761, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7538212296629342938, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3340,6 +3344,10 @@ PrefabInstance:
     - target: {fileID: 7997321320782108623, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229928607083538783, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 166.23047
       objectReference: {fileID: 0}
     - target: {fileID: 8458094235238428402, guid: 78645ded1f008c14fa71feaa6e63774b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7320,7 +7328,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920254588}
-  - component: {fileID: 920254589}
   m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Untagged
@@ -7367,38 +7374,6 @@ Transform:
   - {fileID: 1785464663}
   m_Father: {fileID: 579623655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &920254589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920254587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1359076689fb429e33ad9b17c5484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FencePoints:
-  - {x: -32.744576, y: 10, z: -16.738714}
-  - {x: -32.85285, y: 10, z: 31.147663}
-  FencePrefabs:
-  - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  FenceEndOffset: {x: 0, y: 0, z: 0}
-  FenceRotation: 0
-  FenceLength: 2
-  FenceScale: {x: 1, y: 1, z: 1}
-  CompleteLoop: 0
-  ObjectMode: 0
-  PositionVariation: {x: 0, y: 0}
-  RotationVariation: {x: -180, y: 180}
-  ScaleVariation: {x: 1, y: 1}
-  UseShear: 1
-  UseRaycast: 0
-  RaycastOffsetMax: 1
-  RaycastOffsetMin: -1
-  LayerMask: -5
 --- !u!1001 &927914196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8310,7 +8285,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1088249895}
-  - component: {fileID: 1088249896}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -8358,38 +8332,6 @@ Transform:
   - {fileID: 1097109821}
   m_Father: {fileID: 704872717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1088249896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088249894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1359076689fb429e33ad9b17c5484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FencePoints:
-  - {x: -32.744576, y: 10, z: -16.738714}
-  - {x: -32.85285, y: 10, z: 31.147661}
-  FencePrefabs:
-  - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  FenceEndOffset: {x: 0, y: 0, z: 0}
-  FenceRotation: 0
-  FenceLength: 2
-  FenceScale: {x: 1, y: 1, z: 1}
-  CompleteLoop: 0
-  ObjectMode: 0
-  PositionVariation: {x: 0, y: 0}
-  RotationVariation: {x: -180, y: 180}
-  ScaleVariation: {x: 1, y: 1}
-  UseShear: 1
-  UseRaycast: 0
-  RaycastOffsetMax: 1
-  RaycastOffsetMin: -1
-  LayerMask: -5
 --- !u!1 &1093441132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13231,7 +13173,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1566443290}
-  - component: {fileID: 1566443291}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -13279,38 +13220,6 @@ Transform:
   - {fileID: 1518793346}
   m_Father: {fileID: 704872717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1566443291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566443289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1359076689fb429e33ad9b17c5484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FencePoints:
-  - {x: -32.744576, y: 10, z: -16.738714}
-  - {x: -32.85285, y: 10, z: 31.147661}
-  FencePrefabs:
-  - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  FenceEndOffset: {x: 0, y: 0, z: 0}
-  FenceRotation: 0
-  FenceLength: 2
-  FenceScale: {x: 1, y: 1, z: 1}
-  CompleteLoop: 0
-  ObjectMode: 0
-  PositionVariation: {x: 0, y: 0}
-  RotationVariation: {x: -180, y: 180}
-  ScaleVariation: {x: 1, y: 1}
-  UseShear: 1
-  UseRaycast: 0
-  RaycastOffsetMax: 1
-  RaycastOffsetMin: -1
-  LayerMask: -5
 --- !u!1 &1569046992
 GameObject:
   m_ObjectHideFlags: 0
@@ -16494,7 +16403,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1891162131}
-  - component: {fileID: 1891162132}
   m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Untagged
@@ -16542,38 +16450,6 @@ Transform:
   - {fileID: 1964616034}
   m_Father: {fileID: 234701590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1891162132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891162130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1359076689fb429e33ad9b17c5484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FencePoints:
-  - {x: -32.744576, y: 10, z: -16.738714}
-  - {x: -32.85285, y: 10, z: 31.147663}
-  FencePrefabs:
-  - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  FenceEndOffset: {x: 0, y: 0, z: 0}
-  FenceRotation: 0
-  FenceLength: 2
-  FenceScale: {x: 1, y: 1, z: 1}
-  CompleteLoop: 0
-  ObjectMode: 0
-  PositionVariation: {x: 0, y: 0}
-  RotationVariation: {x: -180, y: 180}
-  ScaleVariation: {x: 1, y: 1}
-  UseShear: 1
-  UseRaycast: 0
-  RaycastOffsetMax: 1
-  RaycastOffsetMin: -1
-  LayerMask: -5
 --- !u!1001 &1892153705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18616,6 +18492,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 322085286481803389, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 342557001547937098, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -18748,6 +18628,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1103074504094914376, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1109224713573951156, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -18855,6 +18739,10 @@ PrefabInstance:
     - target: {fileID: 1624695168877907064, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: sceneViewId
       value: 196
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650683272248260156, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1685728662315885547, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: m_AnchorMax.y
@@ -19196,6 +19084,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3429961769469449997, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3432550498712803292, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: sceneViewId
       value: 98
@@ -19231,6 +19123,10 @@ PrefabInstance:
     - target: {fileID: 3526228362291641729, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526553921807789028, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3529541670117147751, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19556,6 +19452,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 176
       objectReference: {fileID: 0}
+    - target: {fileID: 5283017324819736126, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5314449859437441103, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: sceneViewId
       value: 117
@@ -19631,6 +19531,10 @@ PrefabInstance:
     - target: {fileID: 5724329853432467642, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: sceneViewId
       value: 136
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734295555840673748, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5766771511984855072, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: sceneViewId
@@ -20120,6 +20024,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 21d5d3b63a3f53f4bb29e5de315cd701, type: 2}
+    - target: {fileID: 8147208622396955256, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8154191519349324952, guid: e2d95c2b7ad171640a69f743da512185, type: 3}
       propertyPath: sceneViewId
       value: 97

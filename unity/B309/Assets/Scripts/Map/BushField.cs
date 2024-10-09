@@ -8,7 +8,7 @@ public class BushField : MonoBehaviourPunCallbacks
     // 사람
     private PhotonView _localPlayerPhotonView;
     private PhotonView _photonView;
-    [SerializeField] private float _visibilityRange = 2f;
+    private float _visibilityRange = 3f;
 
     // 부쉬
     private float _transparentAlpha = 0.1f;
@@ -56,7 +56,11 @@ void OnTriggerEnter(Collider other)
             _isInBush = true;
             SetVisibility(photonView, false);
         }
-    }
+    } 
+    // else if(other.CompareTag("Ghost")){
+    //     Debug.Log("고스트 부쉬 드감");
+    //     _isInBush = true;
+    // }
 }
 
 
@@ -90,6 +94,11 @@ void OnTriggerExit(Collider other)
                 // 새 코루틴 시작
                 _exitCoroutine = StartCoroutine(ExitBushCoroutine(photonView));
         }
+        // else if(other.CompareTag("Ghost")){
+        //     Debug.Log("고스트 부쉬 나감");
+        //     _isInBush = false;
+        //     ResetAllBushesTransparency();
+        // }
     }
 }
     private IEnumerator ExitBushCoroutine(PhotonView photonView)
@@ -125,7 +134,6 @@ private void SetVisibility(PhotonView playerView, bool isVisible)
 {
     if (playerView != null)
     {
-        Debug.Log("SetVisibility 호출: "+playerView.ViewID + " " + isVisible);
         // 현재 클라이언트를 제외하고 다른 클라이언트에게만 RPC 호출
         playerView.RPC("SetVisibility", RpcTarget.OthersBuffered, isVisible);
     }
@@ -196,7 +204,6 @@ private void SetVisibility(PhotonView playerView, bool isVisible)
                 otherPlayerView.gameObject.GetComponent<PlayerMovement>().SetVisibility(shouldSee);
 
                 // 다른 플레이어에게 로컬 플레이어의 가시성 업데이트 요청
-                Debug.Log("UpdatePlayerVisibility 호출: "+otherPlayerView.ViewID +  "에게 "+ _localPlayerPhotonView.ViewID + "가 " + shouldSee);
                 _localPlayerPhotonView.RPC("SetVisibilityToPlayer", otherPlayerView.Owner, _localPlayerPhotonView.ViewID, shouldSee);
             }
         }
@@ -214,7 +221,6 @@ private void SetVisibility(PhotonView playerView, bool isVisible)
                 PhotonView otherPlayerView = PhotonView.Find(viewID);
                 if (otherPlayerView != null && otherPlayerView != _localPlayerPhotonView)
                 {
-                    Debug.Log("HidePlayersInBush 호출: "+otherPlayerView.ViewID + " " + false);
                     _localPlayerPhotonView.RPC("SetVisibilityToPlayer", _localPlayerPhotonView.Owner,otherPlayerView.ViewID, false);
                 }
             }

@@ -5552,6 +5552,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 455322720818541468, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 503857306133417778, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5575,6 +5579,10 @@ PrefabInstance:
     - target: {fileID: 604656171817854452, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 620658105137480352, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 703932983945459805, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5616,6 +5624,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1224035674008122661, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1318227745759182150, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 83
@@ -5639,6 +5651,10 @@ PrefabInstance:
     - target: {fileID: 1473112657468678722, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483544501904705602, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1494951529019645708, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
@@ -5671,6 +5687,10 @@ PrefabInstance:
     - target: {fileID: 1657658066712083057, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664727855237394662, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1694754939966421810, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5864,6 +5884,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 89
       objectReference: {fileID: 0}
+    - target: {fileID: 2937273176805637278, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2944874739025478655, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 36
@@ -5883,6 +5907,10 @@ PrefabInstance:
     - target: {fileID: 3011306269404155661, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044864488141084206, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3080719059013790539, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
@@ -5944,6 +5972,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3810007653978281429, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3919597763376534052, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 2
@@ -5955,6 +5987,14 @@ PrefabInstance:
     - target: {fileID: 3965554012953452026, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008436037292038763, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053532910277932783, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4249194746026035126, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6028,6 +6068,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4649887688939458552, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4696881891526674116, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6071,6 +6115,10 @@ PrefabInstance:
     - target: {fileID: 4991581950002963836, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048664571516812824, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5057455936822060669, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6116,6 +6164,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5335277972686109104, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5341975342094611480, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 62
@@ -6131,6 +6183,10 @@ PrefabInstance:
     - target: {fileID: 5416829014254825137, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450042668818604018, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5531249488771428566, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
@@ -6220,6 +6276,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5970851655606967821, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6055669173818987370, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 28
@@ -6252,9 +6312,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6251461475015699694, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6294102819914224328, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6315027939485551813, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6317998856725453395, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
@@ -6279,6 +6347,10 @@ PrefabInstance:
     - target: {fileID: 6471497117054679227, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774936998495359164, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7031470715999641807, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
@@ -6312,6 +6384,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 7215811850642194824, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7349814372652041079, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 13
@@ -6319,6 +6395,10 @@ PrefabInstance:
     - target: {fileID: 7351558312289093505, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
       value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354044285422229567, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7392044214456533110, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: sceneViewId
@@ -6395,6 +6475,10 @@ PrefabInstance:
     - target: {fileID: 7652764457107809401, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675089309637177665, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7694305280202954155, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6547,6 +6631,10 @@ PrefabInstance:
     - target: {fileID: 8580599812127210584, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8626265341287289531, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
+      propertyPath: _visibilityRange
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8638824683939329219, guid: 26edcd9f731a05a4880631a7a7fc51b1, type: 3}
       propertyPath: m_AnchorMax.x
