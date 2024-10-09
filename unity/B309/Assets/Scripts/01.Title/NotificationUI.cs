@@ -52,7 +52,7 @@ public class NotificationUI : MonoBehaviour
         if (_onConfirmAction != null)
         {
             _onConfirmAction?.Invoke();
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+            AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         }
         IsVisiblePopup(false);
     }
@@ -62,7 +62,7 @@ public class NotificationUI : MonoBehaviour
         if (_onCancelAction != null)
         {
             _onCancelAction?.Invoke();
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.Click); 
+            AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click); 
         }
         IsVisiblePopup(false);
     }

@@ -43,7 +43,7 @@ public class MonsterController : LivingEntity, IPunObservable
 
     public override void Die()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.MonsterDead);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.MonsterDead);
         base.Die();
         if (photonView.IsMine)
         {

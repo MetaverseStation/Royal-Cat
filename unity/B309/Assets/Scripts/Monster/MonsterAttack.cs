@@ -212,7 +212,7 @@ public class MonsterAttack : MonoBehaviourPun
             PlayerHealth playerHealth = _targetPlayer.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.MonsterCloseAttack);
+                AudioManager.Inst.PlaySfx(AudioManager.Sfx.MonsterCloseAttack);
                 _monsterAnimator.SetTrigger("CloseAttack");
                 photonView.RPC("SyncCloseAttack", RpcTarget.Others, _targetPlayer.GetComponent<PhotonView>().ViewID);
             }
@@ -231,7 +231,7 @@ public class MonsterAttack : MonoBehaviourPun
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.MonsterRangeShot);
+            AudioManager.Inst.PlaySfx(AudioManager.Sfx.MonsterRangeShot);
             StartCoroutine(DisplayAttackRange());
             photonView.RPC("SyncRangeAttack", RpcTarget.Others);
         }
@@ -306,7 +306,7 @@ public class MonsterAttack : MonoBehaviourPun
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log("StoneAttack");
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.MonsterStoneShot);
+            AudioManager.Inst.PlaySfx(AudioManager.Sfx.MonsterStoneShot);
             photonView.RPC("SyncStoneAttack", RpcTarget.All);
         }
     }

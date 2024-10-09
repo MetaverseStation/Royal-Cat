@@ -79,7 +79,7 @@ crashlytics-build.properties
 Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
 
 # Ignore Font
-unity/B309/Assets/TextMesh Pro/Fonts/Maplestory Light SDF.asset
-unity/B309/Assets/TextMesh Pro/Fonts/Maplestory Bold SDF.asset
-Assets/TextMesh Pro/Fonts/Maplestory Light SDF.asset
-Assets/TextMesh Pro/Fonts/Maplestory Bold SDF.asset
+#unity/B309/Assets/TextMesh Pro/Fonts/Maplestory Light SDF.asset
+#unity/B309/Assets/TextMesh Pro/Fonts/Maplestory Bold SDF.asset
+#Assets/TextMesh Pro/Fonts/Maplestory Light SDF.asset
+#Assets/TextMesh Pro/Fonts/Maplestory Bold SDF.asset

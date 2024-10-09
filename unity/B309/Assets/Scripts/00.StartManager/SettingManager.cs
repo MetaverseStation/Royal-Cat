@@ -38,7 +38,7 @@ public class SettingManager : MonoBehaviour
     public void OnExitButtonClicked()
     {
 
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         UIManager.Inst.SetSettingPopup();
     }
 

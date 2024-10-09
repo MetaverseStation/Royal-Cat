@@ -21,13 +21,13 @@ public class NavBar : MonoBehaviour
 
     public void OnExitButtonClicked()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click); 
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click); 
         UIManager.Inst.SetQuitGamePopup();
     }
 
     public void OnTutorialButtonClicked()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click); 
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click); 
         if (_isTutorial) {
             _isTutorial = !_isTutorial;
             tutorialUI.SetActive(false);
@@ -39,7 +39,7 @@ public class NavBar : MonoBehaviour
 
     public void OnSettingButtonClicked()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click); 
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click); 
         UIManager.Inst.SetSettingPopup();
     }
 

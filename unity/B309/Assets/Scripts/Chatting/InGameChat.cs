@@ -107,7 +107,7 @@ public class InGameChat : MonoBehaviourPunCallbacks
 
     public void OnClickButton()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         SendMessageInGame(inputChat.text);
     }
 

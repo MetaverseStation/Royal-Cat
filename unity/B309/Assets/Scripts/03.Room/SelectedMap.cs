@@ -30,7 +30,7 @@ public class SelectedMap : MonoBehaviourPunCallbacks
 
     public void NextMap()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
 
         if (!(_myPlayer.IsMasterClient))
         {
@@ -61,7 +61,7 @@ public class SelectedMap : MonoBehaviourPunCallbacks
             return;
         }
 
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         if (currentMapImage.sprite == mapImages[0])
         {
             currentMapImage.sprite = mapImages[mapImages.Length - 1];
