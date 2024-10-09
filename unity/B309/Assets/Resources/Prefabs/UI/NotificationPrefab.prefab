@@ -866,7 +866,7 @@ PrefabInstance:
     - target: {fileID: 1310991764241677242, guid: 86fb08575ad134b98afe8f97ed3add4d, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: e0962d31f1f084fa3ba7147d76f5b6e8, type: 2}
+      objectReference: {fileID: 11400000, guid: 75a8ad669311425409a12c21a0a5d88e, type: 2}
     - target: {fileID: 1310991764241677242, guid: 86fb08575ad134b98afe8f97ed3add4d, type: 3}
       propertyPath: m_textAlignment
       value: 65535
@@ -874,7 +874,7 @@ PrefabInstance:
     - target: {fileID: 1310991764241677242, guid: 86fb08575ad134b98afe8f97ed3add4d, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 1653631458307283989, guid: e0962d31f1f084fa3ba7147d76f5b6e8, type: 2}
+      objectReference: {fileID: 2006977654966443192, guid: 75a8ad669311425409a12c21a0a5d88e, type: 2}
     - target: {fileID: 1310991764241677242, guid: 86fb08575ad134b98afe8f97ed3add4d, type: 3}
       propertyPath: m_TextStyleHashCode
       value: -1183493901

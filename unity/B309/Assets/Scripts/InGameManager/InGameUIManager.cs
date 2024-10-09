@@ -178,13 +178,8 @@ public class InGameUIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            tutorialPanel.SetActive(true);
+            tutorialPanel.SetActive(!tutorialPanel.activeSelf);
         }
-
-        // if (Input.GetKeyUp(KeyCode.Tab))
-        // {
-        //     tutorialPanel.SetActive(false);
-        // }
     }
 
     IEnumerator CountdownStart()
