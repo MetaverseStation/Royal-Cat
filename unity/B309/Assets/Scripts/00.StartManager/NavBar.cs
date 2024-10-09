@@ -9,14 +9,46 @@ public class NavBar : MonoBehaviour
 {
     public TextMeshProUGUI playerNameText;
     public Button tutorialButton;
-    public Button ExitButton;   
+    public Button ExitButton;
     public Button SettingButton;
-    public GameObject tutorialUI; 
-    private bool _isTutorial = false;
+    public GameObject tutorialUI;
 
     void Start()
     {
         SetNickName();
+        InitButton();
+    }
+
+    private void Update()
+    {
+        //ESC 키를 누르면 팝업을 닫는다.
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CancelButtonClick();
+        }
+    }
+
+    private void CancelButtonClick()
+    {
+        tutorialUI.SetActive(false);
+    }
+
+    private void InitButton()
+    {
+        if (tutorialButton != null)
+        {
+            tutorialButton.GetComponent<Button>().onClick.AddListener(OnTutorialButtonClicked);
+        }
+
+        if (SettingButton != null)
+        {
+            SettingButton.GetComponent<Button>().onClick.AddListener(OnSettingButtonClicked);
+        }
+
+        if (ExitButton != null)
+        {
+            ExitButton.GetComponent<Button>().onClick.AddListener(OnExitButtonClicked);
+        }
     }
 
     public void OnExitButtonClicked()
@@ -28,13 +60,7 @@ public class NavBar : MonoBehaviour
     public void OnTutorialButtonClicked()
     {
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click); 
-        if (_isTutorial) {
-            _isTutorial = !_isTutorial;
-            tutorialUI.SetActive(false);
-        } else {
-            _isTutorial = !_isTutorial;
-            tutorialUI.SetActive(true);
-        }
+        tutorialUI.SetActive(true);
     }
 
     public void OnSettingButtonClicked()
@@ -50,7 +76,7 @@ public class NavBar : MonoBehaviour
 
     private void SetNickName()
     {
-        string playerName = GameConfig.UserNickName;        
+        string playerName = GameConfig.UserNickName;
         if (playerName == null || playerName == "")
         {
             playerName = "[Unknown]";

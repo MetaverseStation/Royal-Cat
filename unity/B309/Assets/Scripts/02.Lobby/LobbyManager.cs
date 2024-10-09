@@ -30,6 +30,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //버튼
     public Button createRoomButton;
     public Button findRoomButton;
+    public Button tutorialButton;
+
+    // 튜토리얼 관련
+    public GameObject tutorialPanel;
 
     void Start()
     {
@@ -94,6 +98,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if(findRoomButton != null)
         {
             findRoomButton.GetComponent<Button>().onClick.AddListener(FindRoomClick);
+        }
+
+        if (tutorialButton != null) {
+            tutorialButton.GetComponent<Button>().onClick.AddListener(ShowTutorial);
         }
 
         //방 생성 팝업 초기화
@@ -354,5 +362,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         createRoomPopupPrefab.SetActive(false);
         findRoomPopupPrefab.SetActive(false);
+        tutorialPanel.SetActive(false);
+    }
+
+    private void ShowTutorial() {
+        tutorialPanel.SetActive(true);
     }
 }
