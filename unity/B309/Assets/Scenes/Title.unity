@@ -38530,6 +38530,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5018068955261179624, guid: 6486ed465099ea4478ffcdfc022cf1fd, type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5897180603142952511, guid: 6486ed465099ea4478ffcdfc022cf1fd, type: 3}
       propertyPath: m_fontAsset
       value: 
