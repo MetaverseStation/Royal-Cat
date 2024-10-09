@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Stone : MonoBehaviourPun
+public class Stone : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
+        PhotonView photonView = GetComponent<PhotonView>();
         // 충돌한 오브젝트가 플레이어인지 확인합니다.
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -14,7 +15,12 @@ public class Stone : MonoBehaviourPun
             PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                photonView.RPC("SyncDamage", RpcTarget.All, collision.gameObject.GetComponent<PhotonView>().ViewID, 10);
+                Debug.Log("돌에 맞은 플레이어 ID: "+playerHealth.photonView.ViewID);
+                photonView.RPC("SyncDamage", RpcTarget.All, playerHealth.photonView.ViewID, 10);
+            }
+            else
+            {
+                Debug.LogError("PlayerHealth 컴포넌트를 찾을 수 없습니다.");
             }
 
         }
