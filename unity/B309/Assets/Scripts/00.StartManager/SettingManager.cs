@@ -11,16 +11,17 @@ public class SettingManager : MonoBehaviour
     public Toggle muteToggle;
     public TMP_Dropdown resolutionDropdown;
     public Toggle fullScreenToggle;
-    public GameObject settingsPanel;
+    public GameObject settingsPanel;    
 
     // Start is called before the first frame update
+
     void Start()
     {
         volumeSlider.onValueChanged.AddListener(SetVolume);
         muteToggle.onValueChanged.AddListener(ToggleMute);
         resolutionDropdown.onValueChanged.AddListener(ChangeResolution);
-        fullScreenToggle.onValueChanged.AddListener(ToggleFullscreen);
-        
+
+        fullScreenToggle.onValueChanged.AddListener(ToggleFullscreen)
     }
     
     void Update()
@@ -33,6 +34,11 @@ public class SettingManager : MonoBehaviour
                 UIManager.Inst.SetSettingPopup();
             }
         }
+
+        //if (Screen.fullScreen)
+        //{
+        //    fullScreenToggle.enabled = false;
+        //}
     }
 
     public void OnExitButtonClicked()
@@ -60,9 +66,16 @@ public class SettingManager : MonoBehaviour
     public void ChangeResolution(int index)
     {
         if (index == 0)
-            Screen.SetResolution(1920, 1080, Screen.fullScreen);
+        {
+            Screen.SetResolution(1920, 1080, false);
+            fullScreenToggle.enabled = false;
+        }        
         else if (index == 1)
-            Screen.SetResolution(2550, 1440, Screen.fullScreen);
+        {
+            Screen.SetResolution(2550, 1440, false);
+            fullScreenToggle.enabled = false;
+        }
+            
     }
 
     private void IsVisiblePopup(bool enable)

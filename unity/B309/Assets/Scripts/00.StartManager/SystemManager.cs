@@ -14,6 +14,11 @@ public class SystemManager : Singleton<SystemManager>
         Application.wantsToQuit += WantsToQuit;
     }
 
+    private void Awake()
+    {
+        Screen.SetResolution(2550, 1440, true);
+    }
+
     private bool WantsToQuit()
     {
         if (!_isLogout)
