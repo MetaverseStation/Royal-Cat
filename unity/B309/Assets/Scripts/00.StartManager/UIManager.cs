@@ -13,10 +13,21 @@ public class UIManager : Singleton<UIManager>
     //프리팹 UI
     public GameObject popupUIPanelPrefab;
     public GameObject navBarPrefab;
+    public GameObject gameSettingPrefab;
+    private bool _isSettingPopUP = false;
 
     private void Start()
     {
         InitFont();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+
+            UIManager.Inst.SetSettingPopup();
+        }
     }
 
     public void SetPopupCustum(string message, bool isOneButton,
@@ -35,6 +46,7 @@ public class UIManager : Singleton<UIManager>
             script.Init(message, isOneButton, confirmAction, cancelAction, okButtonText, noButtonText);
         }
     }
+
 
     public void SetNavBar(bool enable)
     {
@@ -77,6 +89,11 @@ public class UIManager : Singleton<UIManager>
         popupUIPanelPrefab.SetActive(enable);
     }
 
+    public void SetSettingPopup(){
+        _isSettingPopUP = !_isSettingPopUP;
+        gameSettingPrefab.SetActive(_isSettingPopUP);
+    }
+    
     public void InitFont()
     {
         TextMeshProUGUI[] allTexts = FindObjectsOfType<TextMeshProUGUI>();

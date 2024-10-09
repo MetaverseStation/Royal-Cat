@@ -10,6 +10,7 @@ public class NavBar : MonoBehaviour
     public TextMeshProUGUI playerNameText;
     public Button tutorialButton;
     public Button ExitButton;   
+    public Button SettingButton;
     public GameObject tutorialUI; 
     private bool _isTutorial = false;
 
@@ -34,6 +35,12 @@ public class NavBar : MonoBehaviour
             _isTutorial = !_isTutorial;
             tutorialUI.SetActive(true);
         }
+    }
+
+    public void OnSettingButtonClicked()
+    {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click); 
+        UIManager.Inst.SetSettingPopup();
     }
 
     private void OnEnable()
