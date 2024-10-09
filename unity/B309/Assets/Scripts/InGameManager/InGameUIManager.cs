@@ -218,9 +218,8 @@ public class InGameUIManager : MonoBehaviour
     }
 
     void settingButtonClicked()
-    {
-        //임시 세팅
-        UIManager.Inst.SetPopupCustum("세팅버튼", true, null, null, "확인", null);
+    {        
+        UIManager.Inst.EnableSettingPopup(true);        
     }
 
     //로비로 돌아가기

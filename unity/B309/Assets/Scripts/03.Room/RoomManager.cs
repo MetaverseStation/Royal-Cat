@@ -90,21 +90,21 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private void Update()
     {
         //#########디버그용
-        if (Input.GetKeyDown(KeyCode.F8))
-        {
-            if (_myPlayer.IsMasterClient)
-            {
-                GameStart();
+        //if (Input.GetKeyDown(KeyCode.F8))
+        //{
+        //    if (_myPlayer.IsMasterClient)
+        //    {
+        //        GameStart();
 
-                //1명만 플레이 시 예외로 결과창 안뜨게 함
-                if (PhotonNetwork.CurrentRoom.PlayerCount < 2)
-                {
-                    GameManager.Inst.SetPlayerSurviveCount(-1);
-                }
-            }
-            else
-                UIManager.Inst.SetInformationPopup("방장이 레디하세요");
-        }
+        //        //1명만 플레이 시 예외로 결과창 안뜨게 함
+        //        if (PhotonNetwork.CurrentRoom.PlayerCount < 2)
+        //        {
+        //            GameManager.Inst.SetPlayerSurviveCount(-1);
+        //        }
+        //    }
+        //    else
+        //        UIManager.Inst.SetInformationPopup("방장이 레디하세요");
+        //}
         //################
 
         if (Input.GetKeyDown(KeyCode.F5))

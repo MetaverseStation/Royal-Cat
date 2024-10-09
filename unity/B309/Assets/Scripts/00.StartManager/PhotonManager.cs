@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using ExitGames.Client.Photon;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using ExitGames.Client.Photon.StructWrapping;
+using EpicToonFX;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
@@ -141,7 +142,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     }
 
     public override void OnJoinedLobby()
-    {
+    {        
         StartCoroutine(SceneChanger.Inst.LoadSceneAsync(GameConfig.lobbyScene));
     }
 
@@ -221,6 +222,12 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinRoomFailed(returnCode, message);
         Debug.Log("입장 실패, 로비로 돌아감");
+        JoinLobby();
+    }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        UIManager.Inst.SetPopupCustum("접속할 방이 없습니다.", true, null, null, "확인", null);
         JoinLobby();
     }
 
