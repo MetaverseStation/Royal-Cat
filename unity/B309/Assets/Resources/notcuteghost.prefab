@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8242d247159ec462794ba075ca8c938e, type: 3}
+      propertyPath: m_TagString
+      value: Ghost
+      objectReference: {fileID: 0}
     - target: {fileID: 2546548812389723016, guid: 8242d247159ec462794ba075ca8c938e, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -223,10 +227,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4293a779f7505498b5c684d90a0aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 5
   moveSpeed: 5
   rotationSpeed: 10
   _isDodge: 0
   _isReverse: 0
+  isSlow: 0
+  playerTag: {fileID: 0}
 --- !u!114 &3994014280889876889
 MonoBehaviour:
   m_ObjectHideFlags: 0

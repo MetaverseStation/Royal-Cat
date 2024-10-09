@@ -233,7 +233,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lobster
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8047628689421722099, guid: 2d1511b953af58942b229651cbc3c1a0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

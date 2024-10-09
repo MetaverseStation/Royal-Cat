@@ -11,7 +11,6 @@ public class Bush : MonoBehaviourPunCallbacks
     {
         Renderer renderer = GetComponent<Renderer>();
         if (renderer != null){
-            Debug.Log("renderer: " + renderer);
             _bushMaterial = renderer.material;
         }
         else{
@@ -26,7 +25,6 @@ public class Bush : MonoBehaviourPunCallbacks
         
         if (_bushMaterial != null)
         {
-            Debug.Log("SetBushTransparency: " + _bushMaterial);
             Color color = _bushMaterial.color;
             color.a = Mathf.Clamp(alpha, 0.1f, 1.0f);
             _bushMaterial.color = color;
