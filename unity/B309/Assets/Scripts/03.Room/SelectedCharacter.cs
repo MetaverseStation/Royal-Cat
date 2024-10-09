@@ -42,7 +42,7 @@ public class SelectedCharacter : MonoBehaviourPunCallbacks
 
     public void Prev()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         if (skinIndex - 1 < 1)
         {
             return;
@@ -63,7 +63,7 @@ public class SelectedCharacter : MonoBehaviourPunCallbacks
 
     public void Next()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         if (skinIndex + 1 > _maxSkin)
         {
             return;

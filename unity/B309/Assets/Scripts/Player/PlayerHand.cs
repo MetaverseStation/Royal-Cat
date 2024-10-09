@@ -263,7 +263,7 @@ public class PlayerHand : MonoBehaviour
 
         _playerAnimator.SetBool("doCharge", false);
 
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Attack);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Attack);
     }
 
 

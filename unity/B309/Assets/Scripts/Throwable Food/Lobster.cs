@@ -6,7 +6,7 @@ using Photon.Pun;
 public class Lobster : MonoBehaviour
 {
     private PhotonView _pv;
-    private bool isKnockBack = false;
+    //private bool isKnockBack = false;
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class Lobster : MonoBehaviour
 
             if (rb != null)
             {
-                isKnockBack = true;
+                //isKnockBack = true;
                     
                 // 투사체의 진행 방향을 사용하여 넉백 방향 설정 (transform.forward로 변경)
                 Vector3 knockbackDirection = transform.forward.normalized;
@@ -59,6 +59,6 @@ public class Lobster : MonoBehaviour
             }
         }
 
-        isKnockBack = false;
+        //isKnockBack = false;
     }
 }

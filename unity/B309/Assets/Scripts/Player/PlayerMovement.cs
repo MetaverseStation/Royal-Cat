@@ -146,9 +146,9 @@ public class PlayerMovement : MonoBehaviourPun, IPunObservable
 
         if (!_isBorder && !_isDodge && _moveDirection != Vector3.zero)
         {
-            if (!AudioManager.instance.sfxPlayer[AudioManager.instance.sfxChannelIndex].isPlaying)
+            if (!AudioManager.Inst.sfxPlayer[AudioManager.Inst.sfxChannelIndex].isPlaying)
             {
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.FootStep);
+                AudioManager.Inst.PlaySfx(AudioManager.Sfx.FootStep);
             }
         }
 
@@ -322,7 +322,7 @@ public class PlayerMovement : MonoBehaviourPun, IPunObservable
         {
             if (other.CompareTag("Buff") || other.CompareTag("Skill") || other.CompareTag("Weapon"))
             {
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.CollectItem);
+                AudioManager.Inst.PlaySfx(AudioManager.Sfx.CollectItem);
             }
         }
     }

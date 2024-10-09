@@ -87,13 +87,13 @@ public class TitleManager : MonoBehaviourPunCallbacks
     {
         if (loginForm.activeSelf == false && !PhotonNetwork.IsConnected)
         {
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+            AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
             StartCoroutine(StartConnection());
         }
     }
     private void ExitButtonClicked()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         Application.Quit();
     }
 }

@@ -139,7 +139,7 @@ public class LoginForm : MonoBehaviour
                 StartCoroutine(Login(id, pw));
             }
         }
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
     }
 
     // 중복 로그인 확인
@@ -225,7 +225,7 @@ public class LoginForm : MonoBehaviour
 
     private void OnClickSignUp()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         Application.OpenURL(GameConfig.WebsiteURL);
     }
 
