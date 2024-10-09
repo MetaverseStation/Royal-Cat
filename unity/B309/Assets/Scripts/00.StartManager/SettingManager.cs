@@ -20,6 +20,7 @@ public class SettingManager : MonoBehaviour
         muteToggle.onValueChanged.AddListener(ToggleMute);
         resolutionDropdown.onValueChanged.AddListener(ChangeResolution);
         fullScreenToggle.onValueChanged.AddListener(ToggleFullscreen);
+        
     }
     
     void Update()
