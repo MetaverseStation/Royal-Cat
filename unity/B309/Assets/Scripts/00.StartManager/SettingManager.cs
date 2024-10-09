@@ -23,29 +23,11 @@ public class SettingManager : MonoBehaviour
 
         fullScreenToggle.onValueChanged.AddListener(ToggleFullscreen);
     }
-    
-    void Update()
-    {
-        if(settingsPanel.activeSelf){
-
-            if (Input.GetKeyDown(KeyCode.F2))
-            {
-
-                UIManager.Inst.SetSettingPopup();
-            }
-        }
-
-        //if (Screen.fullScreen)
-        //{
-        //    fullScreenToggle.enabled = false;
-        //}
-    }
 
     public void OnExitButtonClicked()
     {
-
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
-        UIManager.Inst.SetSettingPopup();
+        settingsPanel.SetActive(false);
     }
 
     public void SetVolume(float value)
@@ -69,17 +51,11 @@ public class SettingManager : MonoBehaviour
         {
             Screen.SetResolution(1920, 1080, false);
             fullScreenToggle.enabled = false;
-        }        
+        }
         else if (index == 1)
         {
             Screen.SetResolution(2550, 1440, false);
             fullScreenToggle.enabled = false;
         }
-            
-    }
-
-    private void IsVisiblePopup(bool enable)
-    {
-        settingsPanel.SetActive(enable);
     }
 }

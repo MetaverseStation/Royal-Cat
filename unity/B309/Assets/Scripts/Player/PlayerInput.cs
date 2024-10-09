@@ -45,7 +45,7 @@ public class PlayerInput : MonoBehaviour
 
             chargeFood = Input.GetMouseButton(0);
             throwFood = Input.GetMouseButtonUp(0) || Input.GetKeyDown(KeyCode.Q);            
-            //playerInstantDeath = Input.GetButtonDown("InstantDeath");
+            playerInstantDeath = Input.GetButtonDown("InstantDeath");
 
         }
     }

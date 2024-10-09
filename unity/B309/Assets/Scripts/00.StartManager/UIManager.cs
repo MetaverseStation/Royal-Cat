@@ -5,21 +5,34 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UIManager : Singleton<UIManager>
-{        
+public class UIManager : MonoBehaviour
+{
+    public static UIManager Inst { get; private set; }
+
     //기본 폰트
     public TMP_FontAsset defaultFont;
 
     //프리팹 UI
     public GameObject popupUIPanelPrefab;
     public GameObject navBarPrefab;
-    public GameObject gameSettingPrefab;
-    private bool _isSettingPopUP = false;
+    public GameObject gameSettingPrefab;    
 
-    protected override void Awake()
-    {
-        base.Awake();
+    public GameObject tutorialPrefab;
+
+    void Awake()
+    {        
         Screen.SetResolution(2550, 1440, true);
+
+        //싱글톤 선언
+        if (Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -33,7 +46,12 @@ public class UIManager : Singleton<UIManager>
         if (Input.GetKeyDown(KeyCode.F2))
         {
 
-            UIManager.Inst.SetSettingPopup();
+            EnableSettingPopup(true);
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            EnableTutorialPopup(false);
+            EnableSettingPopup(false);
         }
     }
 
@@ -59,10 +77,9 @@ public class UIManager : Singleton<UIManager>
     {
         navBarPrefab.SetActive(enable);
     }
-
-    // 로비로 이동 여부 팝업창 (TODO여기 고쳐야됨)
+    
     public void SetExitPopup() {
-        SetPopupCustum("로비로 돌아가시겠어요?", false, PhotonManager.Inst.ReConnectTry, null, "네..", "아니요!");
+        SetPopupCustum("로비로 돌아가시겠어요?", false, PhotonManager.Inst.LeaveRoom, null, "네..", "아니요!");
     }
 
 
@@ -77,7 +94,7 @@ public class UIManager : Singleton<UIManager>
     {            
         if (enable)
         {
-            SetPopupCustum("네트워크 연결이 원활하지 않습니다.", false, PhotonManager.Inst.ReConnectTry, SystemManager.Inst.QuitGame, "재연결시도", "게임종료");
+            SetPopupCustum("네트워크 연결이 원활하지 않습니다.", false, SceneChanger.Inst.GoToTitleScene, SystemManager.Inst.QuitGame, "타이틀로", "게임종료");
         }
     }
 
@@ -96,9 +113,16 @@ public class UIManager : Singleton<UIManager>
         popupUIPanelPrefab.SetActive(enable);
     }
 
-    public void SetSettingPopup(){
-        _isSettingPopUP = !_isSettingPopUP;
-        gameSettingPrefab.SetActive(_isSettingPopUP);
+    //튜토리얼 팝업
+    public void EnableTutorialPopup(bool enable)
+    {
+        tutorialPrefab.SetActive(enable);
+    }
+
+    //세팅 팝업
+    public void EnableSettingPopup(bool enable)
+    {
+        gameSettingPrefab.SetActive(enable);
     }
     
     public void InitFont()

@@ -93,4 +93,9 @@ public class SystemManager : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public void LogoutPlayer()
+    {
+        StartCoroutine(Logout());
+    }
 }

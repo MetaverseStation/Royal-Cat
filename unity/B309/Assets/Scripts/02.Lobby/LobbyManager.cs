@@ -45,6 +45,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         //팝업 세팅
         InitPopup();
+
+        if(!GameConfig.isShownTutorial)
+        {
+            UIManager.Inst.EnableTutorialPopup(true);
+            GameConfig.isShownTutorial = true;
+        }        
     }
     private void OnDestroy()
     {
