@@ -137,7 +137,7 @@ public class MonsterAttack : MonoBehaviourPun
         {
 
             _navMeshAgent.isStopped = false;
-            _monsterAnimator.SetBool("hasTarget", true);
+            photonView.RPC("SyncMonsterAnimation", RpcTarget.All, true);
 
             // 타겟에게 도달할 때까지 이동
             while (Vector3.Distance(transform.position, _targetPlayer.transform.position) > 3f)
@@ -150,13 +150,18 @@ public class MonsterAttack : MonoBehaviourPun
                 // 몬스터의 위치를 다른 클라이언트에 동기화
                 photonView.RPC("SyncMonsterPosition", RpcTarget.Others, _navMeshAgent.destination);
                 photonView.RPC("SyncMonsterAnimation", RpcTarget.Others, true);
+                photonView.RPC("SyncMonsterRotation", RpcTarget.All, transform.rotation.eulerAngles);
                 yield return null;  // 다음 프레임까지 대기
             }
 
             // 타겟에 도달하면 멈춘다
             _navMeshAgent.isStopped = true;
-            _monsterAnimator.SetBool("hasTarget", false);
+            photonView.RPC("SyncMonsterAnimation", RpcTarget.All, false);
             transform.LookAt(new Vector3(_targetPlayer.transform.position.x, transform.position.y, _targetPlayer.transform.position.z));
+
+            // 회전 각도 동기화
+            photonView.RPC("SyncMonsterRotation", RpcTarget.All, transform.rotation.eulerAngles);
+
         }
         // else
         // {
@@ -164,6 +169,13 @@ public class MonsterAttack : MonoBehaviourPun
         //     _monsterAnimator.SetBool("hasTarget", true);
         //     _navMeshAgent.SetDestination(monsterSpawnPoint);
         // }
+    }
+
+
+    [PunRPC]
+    private void SyncMonsterRotation(Vector3 targetRotation)
+    {
+        transform.rotation = Quaternion.Euler(targetRotation);
     }
 
     private void PerformAttack()
@@ -253,14 +265,13 @@ public class MonsterAttack : MonoBehaviourPun
             Vector3 direction = _targetPlayer.transform.position - transform.position;
             if (direction.magnitude < 5f && Vector3.Dot(direction.normalized, transform.forward) > dotValue)
             {
-                _monsterAnimator.SetTrigger("RangeAttack");
+                photonView.RPC("SyncAnimation", RpcTarget.All);
                 yield return new WaitForSeconds(1f);
-                _targetPlayer.GetComponent<PlayerHealth>().OnDamage(attackDamage);
                 photonView.RPC("AttackSync", RpcTarget.All, _targetPlayer.GetComponent<PlayerHealth>().photonView.ViewID, attackDamage);
             }
             else
             {
-                _monsterAnimator.SetTrigger("RangeAttack");
+                photonView.RPC("SyncAnimation", RpcTarget.All);
                 yield return new WaitForSeconds(1f);
             }
 
@@ -276,6 +287,18 @@ public class MonsterAttack : MonoBehaviourPun
         {
             rangeAttackUI.transform.localScale = new Vector3(0f, 0f, 0f);
         }
+    }
+
+    [PunRPC]
+    private void SyncRangeAttackScale(Vector3 scale)
+    {
+        rangeAttackUI.transform.localScale = scale;
+    }
+
+    [PunRPC]
+    private void SyncAnimation()
+    {
+        _monsterAnimator.SetTrigger("RangeAttack");
     }
 
     private void StoneAttack()
