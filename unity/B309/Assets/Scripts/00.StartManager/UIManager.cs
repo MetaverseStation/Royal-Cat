@@ -16,9 +16,16 @@ public class UIManager : Singleton<UIManager>
     public GameObject gameSettingPrefab;
     private bool _isSettingPopUP = false;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        Screen.SetResolution(2550, 1440, true);
+    }
+
     private void Start()
     {
-        InitFont();
+        Screen.SetResolution(2550, 1440, true);
+        //InitFont();
     }
 
     void Update()

@@ -3,27 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class SystemManager : Singleton<SystemManager>
-{
+public class SystemManager : MonoBehaviour {
+
+    public static SystemManager Inst;
+    
     const string _logoutAPI = "http://j11b309.p.ssafy.io/api/member/logout/";
     private bool _isLogout = false;
 
     [RuntimeInitializeOnLoadMethod]
-    void OnRuntimeMethodLoad()
+    static void OnRuntimeMethodLoad()
     {
         Application.wantsToQuit += WantsToQuit;
     }
 
     private void Awake()
     {
-        Screen.SetResolution(2550, 1440, true);
+        if(Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private bool WantsToQuit()
+    private static bool WantsToQuit()
     {
-        if (!_isLogout)
-        {
-            StartCoroutine(LogoutAndQuit());
+        if (!Inst._isLogout)
+        {           
+            Inst.StartCoroutine(Inst.LogoutAndQuit());
             return false;
         }
         return true;
@@ -31,18 +41,10 @@ public class SystemManager : Singleton<SystemManager>
 
     private IEnumerator LogoutAndQuit()
     {
-        yield return StartCoroutine(Logout());
+        yield return Logout();
         _isLogout = true;
 
         Application.Quit();
-    }
-
-    protected virtual void OnApplicationQuit()
-    {
-        if (!_isLogout)
-        {
-            StartCoroutine(LogoutAndQuit());
-        }
     }
 
     private IEnumerator Logout()
@@ -79,10 +81,16 @@ public class SystemManager : Singleton<SystemManager>
         }
     }
 
+    protected virtual void OnApplicationQuit()
+    {
+        if (!_isLogout)
+        {
+            StartCoroutine(LogoutAndQuit());
+        }
+    }
+
     public void QuitGame()
     {
         Application.Quit();
     }
-
-
 }
