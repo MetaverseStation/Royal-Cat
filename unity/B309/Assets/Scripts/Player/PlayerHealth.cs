@@ -45,7 +45,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
 
     // 독 데미지 관련 변수
     private float _poisonTimeRemain = 0f; // 독 데미지 남은시간
-    private bool _isTakingPoison = false; // 현재 독을 받고 있는지 여부
+    //private bool _isTakingPoison = false; // 현재 독을 받고 있는지 여부
     private float _damageInterval = 0.4f; // n초에 한번씩 데미지(시간 설정 변수)
     private float _poisonDamage = 1f; // 독 데미지 설정 변수
     private Coroutine _poisonCoroutine;
@@ -114,7 +114,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
         if (!dead)
         {
             // 사망하지 않은 경우에만 피격 효과음 재생이 여기에
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.PlayerDamaged);
+            AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDamaged);
         }
 
         // damage가 defense보다 작다면 damage 0으로 처리
@@ -154,7 +154,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
 
         if (pv.IsMine)
         {
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.PlayerDead);
+            AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDead);
 
             //먹물 제거
             if(BuffHUD.Inst != null)
@@ -169,7 +169,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             }
         }
 
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.PlayerDead);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDead);
 
         string killerName = PhotonView.Find(recentDamage)?.Owner.NickName ?? "Unknown"; // 마지막 공격자 이름
         string victimName = pv.Owner.NickName; // 사망한 플레이어 이름
@@ -205,7 +205,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             if (pv.IsMine)
             {
                 Debug.Log("소리 재생");
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.PlayerDamaged);
+                AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDamaged);
             }
         }
 
@@ -356,7 +356,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
         {
             StopCoroutine(_poisonCoroutine); // 이전 코루틴 정지
         }
-        _isTakingPoison = true;
+        //_isTakingPoison = true;
         _poisonTimeRemain = duration;
         _poisonCoroutine = StartCoroutine(ApplyPoisonDamage());
     }
@@ -368,7 +368,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             healthUIUpdate(health); // UI 업데이트
             if (health <= 0)
             {
-                _isTakingPoison = false;
+                //_isTakingPoison = false;
                 _poisonTimeRemain = 0;
                 Die();
                 yield break;
@@ -377,7 +377,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             yield return new WaitForSeconds(_damageInterval); // 지정된 시간만큼 대기
         }
 
-        _isTakingPoison = false;
+        //_isTakingPoison = false;
         _poisonTimeRemain = 0;
     }
 

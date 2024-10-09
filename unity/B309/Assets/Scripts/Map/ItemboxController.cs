@@ -19,10 +19,12 @@
         [SerializeField] private float _shakeMagnitude = 0.25f; 
         private float _shakeDuration; 
         private Vector3 _originalPosition;  
+        private PhotonView _photonView;
 
         private void Start()
         {
             InitializeItemBox();
+            _photonView = GetComponent<PhotonView>();
         }
 
         private void Update()
@@ -64,10 +66,13 @@
         // 충돌 시 처리 (throwingObject만 충돌 처리)
         private void OnCollisionEnter(Collision collision)
         {
+            Debug.Log("OnCollisionEnter: " + collision.transform.tag);
             if (collision.transform.CompareTag("throwingObject") && _currentHp > 0)
             {
-                photonView.RPC("StartShake", RpcTarget.All); 
-                ApplyDamage();
+                if(_shakeDuration<=0){
+                    _shakeDuration = 0.2f;
+                    ApplyDamage();
+                }
             }
         }
 

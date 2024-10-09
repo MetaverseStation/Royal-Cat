@@ -17,9 +17,9 @@ public class SceneChanger : Singleton<SceneChanger>
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    protected override void OnDestroy()
+    void OnDestroy()
     {
-        base.OnDestroy();
+        //base.OnDestroy();
 
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
@@ -86,7 +86,7 @@ public class SceneChanger : Singleton<SceneChanger>
                 break;
             case "InGame":
                 PhotonManager.Inst.ClearRoomList();
-                AudioManager.instance.PlayBgm(AudioManager.Bgm.InGame);
+                AudioManager.Inst.PlayBgm(AudioManager.Bgm.InGame);
                 UIManager.Inst.SetNavBar(false);
                 //GameManager.Inst.SetPlayer();
                 //각 플레이어가 로딩을 끝냈다는 신호를 보냄
@@ -99,25 +99,25 @@ public class SceneChanger : Singleton<SceneChanger>
                 break;
             case "InGame_Jungle":
                 PhotonManager.Inst.ClearRoomList();
-                AudioManager.instance.PlayBgm(AudioManager.Bgm.InGame);
+                AudioManager.Inst.PlayBgm(AudioManager.Bgm.InGame);
                 UIManager.Inst.SetNavBar(false);
                 PhotonManager.Inst.SetPlayerCustomProperty<bool>(true, GameConfig.isInGameLoaded);
                 break;
             case "InGame_Test":
                 PhotonManager.Inst.ClearRoomList();
-                AudioManager.instance.PlayBgm(AudioManager.Bgm.InGame);
+                AudioManager.Inst.PlayBgm(AudioManager.Bgm.InGame);
                 UIManager.Inst.SetNavBar(false);
                 PhotonManager.Inst.SetPlayerCustomProperty<bool>(true, GameConfig.isInGameLoaded);
                 break;
             case "InGame_Snow":
                 PhotonManager.Inst.ClearRoomList();
-                AudioManager.instance.PlayBgm(AudioManager.Bgm.InGame);
+                AudioManager.Inst.PlayBgm(AudioManager.Bgm.InGame);
                 UIManager.Inst.SetNavBar(false);
                 PhotonManager.Inst.SetPlayerCustomProperty<bool>(true, GameConfig.isInGameLoaded);
                 break;
             case "InGame_Desert":
                 PhotonManager.Inst.ClearRoomList();
-                AudioManager.instance.PlayBgm(AudioManager.Bgm.InGame);
+                AudioManager.Inst.PlayBgm(AudioManager.Bgm.InGame);
                 UIManager.Inst.SetNavBar(false);
                 PhotonManager.Inst.SetPlayerCustomProperty<bool>(true, GameConfig.isInGameLoaded);
                 break;

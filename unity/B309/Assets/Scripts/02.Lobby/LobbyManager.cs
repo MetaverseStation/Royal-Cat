@@ -56,7 +56,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             CancelButtonClick();
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+            AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         }
 
         //엔터키를 누르면 방 생성, 방 찾기 팝업이 열려있다면 확인버튼을 누른다.
@@ -64,12 +64,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             if (createRoomPopupPrefab.activeSelf)
             {
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);  
+                AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);  
                 CreateRoomPopupClick();
             }
             else if (findRoomPopupPrefab.activeSelf)
             {
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);  
+                AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);  
                 FindRoomPopupClick();
             }
         }
@@ -286,7 +286,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //방 생성 버튼 클릭
     private void CreateRoomClick()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         ResetPopup();
         createRoomPopupPrefab.SetActive(true);
 
@@ -302,7 +302,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             return;
         }
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         //초기값으로 설정        
         int maxPlayer = int.Parse(_maxPlayerDropdown.options[_maxPlayerDropdown.value].text);
         //토글 false상태        
@@ -314,7 +314,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //방 찾기 버튼 클릭
     public void FindRoomClick()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         ResetPopup();
         findRoomPopupPrefab.SetActive(true);
     }
@@ -322,7 +322,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //방 찾기 팝업 버튼 클릭
     private void FindRoomPopupClick()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         //방 코드 검증
         string roomFullName = CheckRoomCode(_roomCodeText.text);
         if (roomFullName != null)
@@ -351,7 +351,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void CancelButtonClick()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         createRoomPopupPrefab.SetActive(false);
         findRoomPopupPrefab.SetActive(false);
     }

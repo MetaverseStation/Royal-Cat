@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    public static AudioManager instance;
+    //public static AudioManager instance;
 
     // 배경음
     [Header("#BGM")]
@@ -35,18 +35,18 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     // Awake에서 싱글톤 인스턴스 설정
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록 설정
-        }
-        else
-        {
-            Destroy(gameObject); // 다른 인스턴스가 있으면 파괴
-        }
-    }
+    //private void Awake()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록 설정
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject); // 다른 인스턴스가 있으면 파괴
+    //    }
+    //}
 
     void Init()
     {

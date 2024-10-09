@@ -66,7 +66,7 @@ public class LobbyChat : MonoBehaviour, IChatClientListener
 
     public void SendMessageToLobby()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         string msg = inputChat.text;
         if (!string.IsNullOrEmpty(msg))
         {            

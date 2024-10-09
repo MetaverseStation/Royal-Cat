@@ -31,8 +31,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     private RoomChat _roomChat;
 
-    private GameObject[] _characterList;
-    private GameObject _characters;
+    public GameObject[] _characterList;
+    public GameObject _characters;
     private SelectedCharacter _selectedCharacter;
     public bool[] isSelectedSkin;
     private List<int> _selectedSkinList = new List<int>(); // 선택된 스킨 리스트
@@ -63,13 +63,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonManager.Inst.SetPlayerCustomProperty<bool>(_myPlayer.IsMasterClient, GameConfig.isReady);
 
         // 스킨 오브젝트 가져오기
-        _characters = GameObject.Find("CharacterList");
-        _characterList = new GameObject[_roomLimit];
+        //_characters = GameObject.Find("CharacterList");
+        //_characterList = new GameObject[_roomLimit];
         _selectedCharacter = GameObject.Find("CatSkin").GetComponent<SelectedCharacter>();
-        for (int i = 0; i < _roomLimit; i++)
-        {
-            _characterList[i] = _characters.transform.GetChild(i).gameObject;
-        }
+        //for (int i = 0; i < _roomLimit; i++)
+        //{
+        //    _characterList[i] = _characters.transform.GetChild(i).gameObject;
+        //}
 
         //플레이어가 마스터여부에 따라 버튼 네임 변경
         SetButtonType();
@@ -163,10 +163,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
             int maxPlayers = GameConfig.MaxPlayersInRoom;
 
             //기존 목록 삭제
-            foreach (Transform child in playerListPanel.transform)
-            {
-                Destroy(child.gameObject);
-            }
+            //foreach (Transform child in playerListPanel.transform)
+            //{
+            //    child.gameObject.SetActive(false);
+            //}
 
             // 캐릭터 리스트 초기화
             foreach (GameObject n in _characterList)
@@ -180,7 +180,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
             for (int i = 0; i < maxPlayers; i++)
             {
                 //플레이어 카드 프리팹 생성
-                GameObject playerCard = CreatePlayerCard(i >= _roomLimit);
+                GameObject playerCard = playerListPanel.transform.GetChild(i).gameObject;
+                CreatePlayerCard(playerCard, i, i >= _roomLimit);
 
                 if (i < sortedPlayers.Count)
                 {
@@ -269,7 +270,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void ExitButtonClicked()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         PhotonManager.Inst.ResetPlayerProperty();
 
         //PhotonManager.Inst.SetPlayerCustomProperty<bool>(false, GameConfig.isReady);
@@ -291,7 +292,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void StartButtonClicked()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Click);
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom && _myPlayer.IsMasterClient)
         {
             if (CheckGameStart())
@@ -383,21 +384,23 @@ public class RoomManager : MonoBehaviourPunCallbacks
         _roomChat.SetMessageLocal("[" + newMasterClient.NickName + "] 님이 방장이 되었습니다..");
     }
 
-    private GameObject CreatePlayerCard(bool isClosed)
-    {
-        GameObject playerItem = Instantiate(playerCardPrefab, playerListPanel.transform);
-        Transform playerPanel = playerItem.transform.Find("PlayerPanel");
-        Transform closedPanel = playerItem.transform.Find("ClosedPanel");
+    private GameObject CreatePlayerCard(GameObject playerItem, int avatarIdx, bool isClosed)
+    {        
+        GameObject playerPanel = playerItem.transform.Find("PlayerPanel").gameObject;
+        GameObject closedPanel = playerItem.transform.Find("ClosedPanel").gameObject;
+        
         if (isClosed == false)
         {
-            playerPanel.gameObject.SetActive(true);
-            closedPanel.gameObject.SetActive(false);
+            playerPanel.SetActive(true);
+            closedPanel.SetActive(false);
+            //_characterList[avatarIdx].SetActive(true);
         }
         //닫힌 패널
         else
         {
             playerPanel.gameObject.SetActive(false);
             closedPanel.gameObject.SetActive(true);
+            //_characterList[avatarIdx].SetActive(false);
         }
         return playerItem;
     }

@@ -13,10 +13,21 @@ public class UIManager : Singleton<UIManager>
     //프리팹 UI
     public GameObject popupUIPanelPrefab;
     public GameObject navBarPrefab;
+    public GameObject gameSettingPrefab;
+    private bool _isSettingPopUP = false;
 
     private void Start()
     {
         InitFont();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+
+            UIManager.Inst.SetSettingPopup();
+        }
     }
 
     public void SetPopupCustum(string message, bool isOneButton,
@@ -36,6 +47,7 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+
     public void SetNavBar(bool enable)
     {
         navBarPrefab.SetActive(enable);
@@ -50,7 +62,7 @@ public class UIManager : Singleton<UIManager>
     //나가기 여부 팝업창
     public void SetQuitGamePopup()
     {
-        SetPopupCustum("정말로 게임을 종료하시겠어요?", false, GameManager.Inst.QuitGame, null, "네..", "아니요!");
+        SetPopupCustum("정말로 게임을 종료하시겠어요?", false, SystemManager.Inst.QuitGame, null, "네..", "아니요!");
     }
 
     //연결 실패 팝업 창
@@ -58,7 +70,7 @@ public class UIManager : Singleton<UIManager>
     {            
         if (enable)
         {
-            SetPopupCustum("네트워크 연결이 원활하지 않습니다.", false, PhotonManager.Inst.ReConnectTry, GameManager.Inst.QuitGame, "재연결시도", "게임종료");
+            SetPopupCustum("네트워크 연결이 원활하지 않습니다.", false, PhotonManager.Inst.ReConnectTry, SystemManager.Inst.QuitGame, "재연결시도", "게임종료");
         }
     }
 
@@ -69,7 +81,7 @@ public class UIManager : Singleton<UIManager>
 
     public void SetUnknownError()
     {
-        SetPopupCustum("알 수 없는 오류", true, GameManager.Inst.QuitGame, GameManager.Inst.QuitGame, "게임종료", null);
+        SetPopupCustum("알 수 없는 오류", true, SystemManager.Inst.QuitGame, SystemManager.Inst.QuitGame, "게임종료", null);
     }
 
     public void SetPopup(bool enable)
@@ -77,6 +89,11 @@ public class UIManager : Singleton<UIManager>
         popupUIPanelPrefab.SetActive(enable);
     }
 
+    public void SetSettingPopup(){
+        _isSettingPopUP = !_isSettingPopUP;
+        gameSettingPrefab.SetActive(_isSettingPopUP);
+    }
+    
     public void InitFont()
     {
         TextMeshProUGUI[] allTexts = FindObjectsOfType<TextMeshProUGUI>();

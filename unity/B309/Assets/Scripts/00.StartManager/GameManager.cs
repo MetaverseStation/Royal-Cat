@@ -44,7 +44,7 @@ public class GameManager : Singleton<GameManager>
     {
         PhotonNetwork.PrefabPool = new FoodObjectPool();
         _objPool = PhotonNetwork.PrefabPool;
-        Screen.SetResolution(GameConfig.Width, GameConfig.Height, false);
+        //Screen.SetResolution(GameConfig.Width, GameConfig.Height, false);
     }
 
     private void Update()
@@ -121,32 +121,6 @@ public class GameManager : Singleton<GameManager>
         }
 
         Invoke("ChangeSkin", 2f);
-    }
-
-    public void QuitGame()
-    {
-        StartCoroutine(Logout());
-    }
-
-    private IEnumerator Logout()
-    {
-        // 로그인 상태 갱신 요청
-        UnityWebRequest request = new UnityWebRequest("http://j11b309.p.ssafy.io/api/member/logout/" + User.UserName, "POST");
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.Success)
-        {
-            Debug.Log("로그아웃 성공");
-            // 게임 종료
-            Application.Quit();
-        }
-        else
-        {
-            Debug.Log("로그아웃 실패");
-        }
     }
 
     public void DestroyObj(GameObject obj)

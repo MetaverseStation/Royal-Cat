@@ -2906,7 +2906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0086f1e375ab8904aa45fccce2902a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visibilityRange: 2
+  _visibilityRange: 3
   _isInBush: 0
 --- !u!65 &111330926
 BoxCollider:
@@ -21554,7 +21554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0086f1e375ab8904aa45fccce2902a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visibilityRange: 2
+  _visibilityRange: 3
   _isInBush: 0
 --- !u!1001 &683583549
 PrefabInstance:
@@ -21643,7 +21643,7 @@ Transform:
   m_GameObject: {fileID: 686984553}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24431,7 +24431,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 749827103}
-  - component: {fileID: 749827104}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -24485,39 +24484,6 @@ Transform:
   - {fileID: 636500465}
   m_Father: {fileID: 352984277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &749827104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749827102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1359076689fb429e33ad9b17c5484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FencePoints:
-  - {x: -62.198006, y: 5.9301066, z: -18.403831}
-  - {x: -33.607643, y: 5.8636303, z: -18.245228}
-  - {x: -0.8710251, y: 5.941473, z: -18.17955}
-  FencePrefabs:
-  - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  FenceEndOffset: {x: 0, y: 0, z: 0}
-  FenceRotation: 0
-  FenceLength: 2
-  FenceScale: {x: 1, y: 1, z: 1}
-  CompleteLoop: 0
-  ObjectMode: 0
-  PositionVariation: {x: 0, y: 0}
-  RotationVariation: {x: -180, y: 180}
-  ScaleVariation: {x: 1, y: 1}
-  UseShear: 1
-  UseRaycast: 0
-  RaycastOffsetMax: 1
-  RaycastOffsetMin: -1
-  LayerMask: -5
 --- !u!1 &752296775
 GameObject:
   m_ObjectHideFlags: 0
@@ -25357,7 +25323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0086f1e375ab8904aa45fccce2902a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visibilityRange: 2
+  _visibilityRange: 3
   _isInBush: 0
 --- !u!1 &772501436
 GameObject:
@@ -25845,7 +25811,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 786075865}
-  - component: {fileID: 786075866}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -25899,39 +25864,6 @@ Transform:
   - {fileID: 127879497}
   m_Father: {fileID: 561570893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &786075866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786075864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1359076689fb429e33ad9b17c5484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FencePoints:
-  - {x: -62.198006, y: 5.9301066, z: -18.403831}
-  - {x: -33.607643, y: 5.8636303, z: -18.245228}
-  - {x: -0.8710251, y: 5.941473, z: -18.17955}
-  FencePrefabs:
-  - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  FenceEndOffset: {x: 0, y: 0, z: 0}
-  FenceRotation: 0
-  FenceLength: 2
-  FenceScale: {x: 1, y: 1, z: 1}
-  CompleteLoop: 0
-  ObjectMode: 0
-  PositionVariation: {x: 0, y: 0}
-  RotationVariation: {x: -180, y: 180}
-  ScaleVariation: {x: 1, y: 1}
-  UseShear: 1
-  UseRaycast: 0
-  RaycastOffsetMax: 1
-  RaycastOffsetMin: -1
-  LayerMask: -5
 --- !u!1001 &787335601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32519,7 +32451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0086f1e375ab8904aa45fccce2902a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visibilityRange: 2
+  _visibilityRange: 3
   _isInBush: 0
 --- !u!1001 &1000494477
 PrefabInstance:
@@ -33920,7 +33852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0086f1e375ab8904aa45fccce2902a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visibilityRange: 2
+  _visibilityRange: 3
   _isInBush: 0
 --- !u!65 &1043004024
 BoxCollider:
@@ -42437,7 +42369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0086f1e375ab8904aa45fccce2902a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visibilityRange: 2
+  _visibilityRange: 3
   _isInBush: 0
 --- !u!1001 &1258099812
 PrefabInstance:
@@ -62374,7 +62306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0086f1e375ab8904aa45fccce2902a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visibilityRange: 2
+  _visibilityRange: 3
   _isInBush: 0
 --- !u!65 &1839107878
 BoxCollider:
@@ -65583,7 +65515,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1924737033}
-  - component: {fileID: 1924737034}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -65637,39 +65568,6 @@ Transform:
   - {fileID: 1734437749}
   m_Father: {fileID: 1077634361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1924737034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924737032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1359076689fb429e33ad9b17c5484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FencePoints:
-  - {x: -62.198006, y: 5.9301066, z: -18.403831}
-  - {x: -33.607643, y: 5.8636303, z: -18.245228}
-  - {x: -0.8710251, y: 5.941473, z: -18.17955}
-  FencePrefabs:
-  - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  FenceEndOffset: {x: 0, y: 0, z: 0}
-  FenceRotation: 0
-  FenceLength: 2
-  FenceScale: {x: 1, y: 1, z: 1}
-  CompleteLoop: 0
-  ObjectMode: 0
-  PositionVariation: {x: 0, y: 0}
-  RotationVariation: {x: -180, y: 180}
-  ScaleVariation: {x: 1, y: 1}
-  UseShear: 1
-  UseRaycast: 0
-  RaycastOffsetMax: 1
-  RaycastOffsetMin: -1
-  LayerMask: -5
 --- !u!1 &1931936141
 GameObject:
   m_ObjectHideFlags: 0
@@ -70335,7 +70233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0086f1e375ab8904aa45fccce2902a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visibilityRange: 2
+  _visibilityRange: 3
   _isInBush: 0
 --- !u!65 &2080537628
 BoxCollider:
@@ -70997,7 +70895,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2099308960}
-  - component: {fileID: 2099308961}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -71051,39 +70948,6 @@ Transform:
   - {fileID: 1206326280}
   m_Father: {fileID: 1484539512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2099308961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099308959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee1359076689fb429e33ad9b17c5484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FencePoints:
-  - {x: -62.198006, y: 5.9301066, z: -18.403831}
-  - {x: -33.607643, y: 5.8636303, z: -18.245228}
-  - {x: -0.8710251, y: 5.941473, z: -18.17955}
-  FencePrefabs:
-  - {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  PostPrefab: {fileID: 942762337184432749, guid: b9c7a183a7a2e004cb24435cb080a708, type: 3}
-  FenceEndOffset: {x: 0, y: 0, z: 0}
-  FenceRotation: 0
-  FenceLength: 2
-  FenceScale: {x: 1, y: 1, z: 1}
-  CompleteLoop: 0
-  ObjectMode: 0
-  PositionVariation: {x: 0, y: 0}
-  RotationVariation: {x: -180, y: 180}
-  ScaleVariation: {x: 1, y: 1}
-  UseShear: 1
-  UseRaycast: 0
-  RaycastOffsetMax: 1
-  RaycastOffsetMin: -1
-  LayerMask: -5
 --- !u!1001 &2102440011
 PrefabInstance:
   m_ObjectHideFlags: 0
