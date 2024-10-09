@@ -43,8 +43,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         PhotonNetwork.PrefabPool = new FoodObjectPool();
-        _objPool = PhotonNetwork.PrefabPool;
-        //Screen.SetResolution(GameConfig.Width, GameConfig.Height, false);
+        _objPool = PhotonNetwork.PrefabPool;        
     }
 
     private void Update()
