@@ -213,11 +213,15 @@ PrefabInstance:
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -8331580831432899044, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
+    - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7458419362153173290, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_Name
       value: PlayerCard3
@@ -371,11 +375,15 @@ PrefabInstance:
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -8331580831432899044, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
+    - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5794625462547289437, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -521,11 +529,15 @@ PrefabInstance:
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -8331580831432899044, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
+    - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7458419362153173290, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_Name
       value: PlayerCard4
@@ -647,11 +659,15 @@ PrefabInstance:
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -8331580831432899044, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
+    - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7458419362153173290, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_Name
       value: PlayerCard5
@@ -773,11 +789,15 @@ PrefabInstance:
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -8331580831432899044, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
+    - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7458419362153173290, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_Name
       value: PlayerCard2
@@ -907,11 +927,15 @@ PrefabInstance:
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
     - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -8331580831432899044, guid: 87b86d64b5ccfec4cb3a83a785f6eae1, type: 2}
+    - target: {fileID: 3882426937785537501, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7458419362153173290, guid: 1e9d06baeae31924c94f251987b74830, type: 3}
       propertyPath: m_Name
       value: PlayerCard1
