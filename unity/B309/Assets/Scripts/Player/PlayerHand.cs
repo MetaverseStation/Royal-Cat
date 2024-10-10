@@ -236,6 +236,7 @@ public class PlayerHand : MonoBehaviour
                 chargeTime = 0;
                 chargeSlider.gameObject.SetActive(false);
             }
+            
 
             ThrowAnimation();
             _currentAttackCoolTime = 0;
@@ -248,6 +249,7 @@ public class PlayerHand : MonoBehaviour
 
         float animationSpeed = 1 / attackCoolTime;
         animationSpeed = animationSpeed <= 1f ? 1f : animationSpeed;
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Attack);
 
         if (_pv.IsMine)
         {
@@ -263,7 +265,6 @@ public class PlayerHand : MonoBehaviour
 
         _playerAnimator.SetBool("doCharge", false);
 
-        AudioManager.Inst.PlaySfx(AudioManager.Sfx.Attack);
     }
 
 
