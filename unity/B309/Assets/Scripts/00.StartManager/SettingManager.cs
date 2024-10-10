@@ -12,6 +12,7 @@ public class SettingManager : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     public Toggle fullScreenToggle;
     public GameObject settingsPanel;    
+    private bool _isFullScreen = true;
 
     // Start is called before the first frame update
 
@@ -42,20 +43,19 @@ public class SettingManager : MonoBehaviour
 
     public void ToggleFullscreen(bool isFullscreen)
     {
-        Screen.fullScreen = isFullscreen;
+        _isFullScreen = isFullscreen;
+        Screen.fullScreen = _isFullScreen;
     }
 
     public void ChangeResolution(int index)
     {
         if (index == 0)
         {
-            Screen.SetResolution(1920, 1080, false);
-            fullScreenToggle.enabled = false;
+            Screen.SetResolution(2560, 1440, _isFullScreen);
         }
         else if (index == 1)
         {
-            Screen.SetResolution(2550, 1440, false);
-            fullScreenToggle.enabled = false;
+            Screen.SetResolution(1920, 1080, _isFullScreen);
         }
     }
 }

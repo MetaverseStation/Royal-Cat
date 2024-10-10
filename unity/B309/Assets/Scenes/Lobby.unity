@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 950, y: -477}
+  m_AnchoredPosition: {x: 950, y: -476}
   m_SizeDelta: {x: 400, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4613508
@@ -1008,7 +1008,7 @@ PrefabInstance:
     - target: {fileID: 2023034407799110909, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 1333032303}
+      objectReference: {fileID: 652329538}
     - target: {fileID: 2200737320903516544, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       propertyPath: m_fontSize
       value: 70
@@ -1143,7 +1143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881958879083634706, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 126
+      value: 230.99997
       objectReference: {fileID: 0}
     - target: {fileID: 3912871555827454390, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1395,7 +1395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7566388670479315998, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 473
+      value: 519
       objectReference: {fileID: 0}
     - target: {fileID: 7916365864884854230, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       propertyPath: m_Sprite
@@ -1448,10 +1448,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5765047250046775441, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4613507}
+      addedObject: {fileID: 1434506953}
     - targetCorrespondingSourceObject: {fileID: 5765047250046775441, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1434506953}
+      addedObject: {fileID: 4613507}
     - targetCorrespondingSourceObject: {fileID: 5765047250046775441, guid: 0bc9cd8b050471f4d8420cba83c99dbd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 59695766}
@@ -1873,6 +1873,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625160646}
   m_CullTransparentMesh: 1
+--- !u!21 &652329538
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 1800, g: 750, b: 120, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &672686439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,46 +2251,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983874414}
   m_CullTransparentMesh: 1
---- !u!21 &1089352012
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 1800, g: 750, b: 120, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1092546114
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,8 +2557,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278472381
-  m_fontColor: {r: 0.7411765, g: 0.30588236, b: 0.015686275, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2790,46 +2790,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263637106}
   m_CullTransparentMesh: 1
---- !u!21 &1333032303
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 1800, g: 750, b: 120, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1364393521
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,7 +3079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 950, y: -186}
+  m_AnchoredPosition: {x: 950, y: -58}
   m_SizeDelta: {x: 400, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1434506954
@@ -3201,7 +3161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64e66d50a131a4abaa8d4ebe129b2b72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efb6c9334e498404883cd7150d537d74, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
