@@ -15,6 +15,7 @@ public class BushField : MonoBehaviourPunCallbacks
     private Dictionary<Bush, float> _transparentBushes = new Dictionary<Bush, float>(); // 투명해진 부쉬들을 추적
     [SerializeField] private bool _isInBush;
     private Coroutine _exitCoroutine;
+    
 
     void Start()
     {    
