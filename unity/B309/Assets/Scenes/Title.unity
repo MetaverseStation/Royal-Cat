@@ -38634,6 +38634,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9020666053884249807, guid: 6486ed465099ea4478ffcdfc022cf1fd, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: 2560 * 1440
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020666053884249807, guid: 6486ed465099ea4478ffcdfc022cf1fd, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: 1920 * 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
