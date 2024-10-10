@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     //게임 관련
     public bool isGaming = false;
+    public bool isGameFinish = false;
 
     private void Awake()
     {
@@ -270,10 +271,13 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("플레이어[ " + _playerRank + " ]명 남음");
         //DebugManager.Inst.SetInfoText("player[ " + _playerRank + " ] live!");
+        //if (_playerRank <= 1 && _playerRank >= -10 && !isGameFinish)
         if (_playerRank == 1)
         {            
             if (PhotonNetwork.LocalPlayer.NickName == PhotonNetwork.MasterClient.NickName)
             {
+                isGameFinish = true;
+
                 //마스터 클라이언트 기준으로 순위를 매긴다.
                 List<string> rankList = new List<string>();
 
@@ -333,6 +337,7 @@ public class GameManager : MonoBehaviour
         PhotonManager.Inst.ResetPlayerProperty();
         _gameManagerPV = null;
         isGaming = false;
+        isGameFinish = false;
     }
 
     //죽은 순서로 배치되므로 순위를 매길 때 반대로 정렬해서 넣는다.

@@ -99,7 +99,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         //        //1명만 플레이 시 예외로 결과창 안뜨게 함
         //        if (PhotonNetwork.CurrentRoom.PlayerCount < 2)
         //        {
-        //            GameManager.Inst.SetPlayerSurviveCount(-1);
+        //            GameManager.Inst.SetPlayerSurviveCount(-100);
         //        }
         //    }
         //    else
@@ -183,6 +183,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 GameObject playerCard = playerListPanel.transform.GetChild(i).gameObject;
                 CreatePlayerCard(playerCard, i, i >= _roomLimit);
 
+                //플레이어 마스터, 레디 여부 세팅
+                //TODO: 플레이어 레디 여부에 따라 프로퍼티 정보 갱신
+                Transform playerReadyPanel = playerCard.transform.Find("ReadyPanel");
+                Transform playerReadyText = playerCard.transform.Find("ReadyPanel/ReadyText");
+
                 if (i < sortedPlayers.Count)
                 {
                     Player player = sortedPlayers[i];
@@ -219,11 +224,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
                     }
 
                     catRenderer.materials = materials;
-
-                    //플레이어 마스터, 레디 여부 세팅
-                    //TODO: 플레이어 레디 여부에 따라 프로퍼티 정보 갱신
-                    Transform playerReadyPanel = playerCard.transform.Find("ReadyPanel");
-                    Transform playerReadyText = playerCard.transform.Find("ReadyPanel/ReadyText");
 
                     //해당 플레이어가 자신이라면 레디의 오브젝트를 갖는다. 레디 온 오프 기능을 하기 위해
                     if (player == _myPlayer)
@@ -267,6 +267,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 {
                     Transform playerNameText = playerCard.transform.Find("PlayerPanel/NameText");
                     playerNameText.GetComponent<TextMeshProUGUI>().text = "";
+                    SetReadyUI(playerReadyPanel.gameObject, false);
                 }
             }
         }

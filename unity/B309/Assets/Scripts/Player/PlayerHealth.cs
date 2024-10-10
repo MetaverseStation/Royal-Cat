@@ -81,7 +81,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
     private void Update()
     {
 
-        if (_playerInput.playerInstantDeath || health <= 0)
+        if (_playerInput.playerInstantDeath || health <= 0f)
         // if (_playerInput.playerInstantDeath)
         {
             deathcount++;
@@ -91,6 +91,11 @@ public class PlayerHealth : LivingEntity, IPunObservable
             {
                 Die();
             }
+        }
+
+        if(pv.IsMine && GameManager.Inst.GetPlayer().transform.position.y < -100)
+        {
+            Die();
         }
     }
     protected override void OnEnable()
@@ -152,12 +157,16 @@ public class PlayerHealth : LivingEntity, IPunObservable
         // LivingEntity의 Die() 실행
         base.Die();
 
+        string killerName = PhotonView.Find(recentDamage)?.Owner.NickName ?? "Unknown"; // 마지막 공격자 이름
+        string victimName = pv.Owner.NickName; // 사망한 플레이어 이름        
+
         if (pv.IsMine)
         {
             AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDead);
-
+            
+           
             //먹물 제거
-            if(BuffHUD.Inst != null)
+            if (BuffHUD.Inst != null)
             {
                 BuffHUD.Inst.SetOctopusBlind(false);
             }            
@@ -169,10 +178,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             }
         }
 
-        AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDead);
-
-        string killerName = PhotonView.Find(recentDamage)?.Owner.NickName ?? "Unknown"; // 마지막 공격자 이름
-        string victimName = pv.Owner.NickName; // 사망한 플레이어 이름
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDead);        
 
         // 모든 클라이언트에서 킬 로그를 출력하도록 RPC 호출        
         pv.RPC("ShowKillLog", RpcTarget.All, killerName, victimName);
@@ -192,8 +198,16 @@ public class PlayerHealth : LivingEntity, IPunObservable
     public void ShowKillLog(string killerName, string victimName)
     {
         string killMessage ="["+killerName + "]님이 [" + victimName+"]를 처치!";
-        InGameUIManager.Inst.ShowKillLog(killerName, victimName, killMessage); // UIManager를 통해 킬 로그 출력
+
+        
+        //pv.RPC("SendKillLog", pv.Owner, killerName, victimName, killMessage);
     }
+
+    //[PunRPC]
+    //public void SendKillLog(string killerName, string victimName, string killMessage)
+    //{
+    //    InGameUIManager.Inst.ShowKillLog(killerName, victimName, killMessage); // UIManager를 통해 킬 로그 출력
+    //}
 
 
     // 플레이어 체력 슬라이더 및 텍스트 업데이트
