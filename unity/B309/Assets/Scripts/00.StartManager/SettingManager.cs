@@ -51,7 +51,7 @@ public class SettingManager : MonoBehaviour
     {
         if (index == 0)
         {
-            Screen.SetResolution(2550, 1440, _isFullScreen);
+            Screen.SetResolution(2560, 1440, _isFullScreen);
         }
         else if (index == 1)
         {
