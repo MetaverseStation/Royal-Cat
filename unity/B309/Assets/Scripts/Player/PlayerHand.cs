@@ -182,7 +182,9 @@ public class PlayerHand : MonoBehaviour
         //RaycastHit hitInfo;
         RaycastHit hit;
 
-        if (currentSkillType == SkillType.Parabola && Physics.Raycast(ray, out hit))
+        int layerMask = ~LayerMask.GetMask("WaterWall", "WallMaria");
+
+        if (currentSkillType == SkillType.Parabola && Physics.Raycast(ray, out hit ,Mathf.Infinity, layerMask))
         {
             desPosition = hit.point;
         }
