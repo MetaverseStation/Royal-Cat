@@ -10,27 +10,12 @@ public class NavBar : MonoBehaviour
     public TextMeshProUGUI playerNameText;
     public Button tutorialButton;
     public Button ExitButton;
-    public Button SettingButton;
-    public GameObject tutorialUI;
+    public Button SettingButton;    
 
     void Start()
     {
         SetNickName();
         InitButton();
-    }
-
-    private void Update()
-    {
-        //ESC 키를 누르면 팝업을 닫는다.
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            CancelButtonClick();
-        }
-    }
-
-    private void CancelButtonClick()
-    {
-        tutorialUI.SetActive(false);
     }
 
     private void InitButton()
@@ -60,13 +45,13 @@ public class NavBar : MonoBehaviour
     public void OnTutorialButtonClicked()
     {
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click); 
-        tutorialUI.SetActive(true);
+        UIManager.Inst.EnableTutorialPopup(true);
     }
 
     public void OnSettingButtonClicked()
     {
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click); 
-        UIManager.Inst.SetSettingPopup();
+        UIManager.Inst.EnableSettingPopup(true);
     }
 
     private void OnEnable()

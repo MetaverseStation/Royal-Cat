@@ -4,6 +4,8 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using ExitGames.Client.Photon;
+//using System.Collections;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -31,9 +33,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Button createRoomButton;
     public Button findRoomButton;
     public Button tutorialButton;
+    public Button randomMatchingButton;
 
     // 튜토리얼 관련
     public GameObject tutorialPanel;
+
+    //랜덤매칭 필터
+    Hashtable randomFilter = new Hashtable()
+    {
+        {"isPrivate", false }
+    };
 
     void Start()
     {
@@ -45,6 +54,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         //팝업 세팅
         InitPopup();
+
+        if(!GameConfig.isShownTutorial)
+        {
+            UIManager.Inst.EnableTutorialPopup(true);
+            GameConfig.isShownTutorial = true;
+        }        
     }
     private void OnDestroy()
     {
@@ -102,6 +117,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         if (tutorialButton != null) {
             tutorialButton.GetComponent<Button>().onClick.AddListener(ShowTutorial);
+        }
+
+        if (randomMatchingButton != null)
+        {
+            randomMatchingButton.GetComponent<Button>().onClick.AddListener(RandomMatchButtonClick);
         }
 
         //방 생성 팝업 초기화
@@ -357,6 +377,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         return null;
     }
 
+    //랜덤 매칭
+    private void JoinRandomRoom()
+    {       
+        PhotonNetwork.JoinRandomRoom(randomFilter, 0, MatchmakingMode.RandomMatching, TypedLobby.Default, null, null);
+        SceneChanger.Inst.SetLoadingScene();
+    }
+
     private void CancelButtonClick()
     {
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
@@ -367,5 +394,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void ShowTutorial() {
         tutorialPanel.SetActive(true);
+    }
+
+    private void RandomMatchButtonClick()
+    {
+        JoinRandomRoom();
     }
 }

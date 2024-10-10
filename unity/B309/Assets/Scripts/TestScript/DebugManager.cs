@@ -3,8 +3,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DebugManager : Singleton<DebugManager>
+public class DebugManager : MonoBehaviour
 {
+    public static DebugManager Inst;
+
     public TextMeshProUGUI sceneStatusText;
     public TextMeshProUGUI connectStatusText;
     public TextMeshProUGUI networkStatusText;
@@ -17,11 +19,20 @@ public class DebugManager : Singleton<DebugManager>
 
     public bool testMode { get; set; } = false;
 
-    //protected override void Awake()
-    //{
-    //    base.Awake();
-    //    Application.targetFrameRate = GameConfig.FPS;
-    //}
+    void Awake()
+    {
+        //싱글톤 선언
+        if (Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
 
     private void Start()
     {

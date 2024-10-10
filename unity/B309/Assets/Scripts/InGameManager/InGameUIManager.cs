@@ -6,8 +6,7 @@ using TMPro;
 
 public class InGameUIManager : MonoBehaviour
 {
-    //싱글톤
-    //public static InGameUIManager2 Inst;
+    //싱글톤    
 
     //#1. 카운트 다운 및 게임 시작 및 종료를 알리는 패널
     public GameObject messagePanel;
@@ -125,7 +124,7 @@ public class InGameUIManager : MonoBehaviour
         }
 
         Button exitButton2 = gameResultPanel.transform.Find("ExitButton").GetComponent<Button>();
-        exitButton2.onClick.AddListener(exitRoomButtonClicked);
+        exitButton2.onClick.AddListener(OnClickResultExitButton);
 
         //초기화
         messagePanel.SetActive(false);
@@ -178,13 +177,8 @@ public class InGameUIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            tutorialPanel.SetActive(true);
+            tutorialPanel.SetActive(!tutorialPanel.activeSelf);
         }
-
-        // if (Input.GetKeyUp(KeyCode.Tab))
-        // {
-        //     tutorialPanel.SetActive(false);
-        // }
     }
 
     IEnumerator CountdownStart()
@@ -224,9 +218,8 @@ public class InGameUIManager : MonoBehaviour
     }
 
     void settingButtonClicked()
-    {
-        //임시 세팅
-        UIManager.Inst.SetPopupCustum("세팅버튼", true, null, null, "확인", null);
+    {        
+        UIManager.Inst.EnableSettingPopup(true);        
     }
 
     //로비로 돌아가기
@@ -445,5 +438,11 @@ public class InGameUIManager : MonoBehaviour
         UICamera.gameObject.SetActive(true);
 
         yield return null;
+    }
+
+    private void OnClickResultExitButton()
+    {
+        Time.timeScale = 1f;
+        PhotonManager.Inst.LeaveRoom();
     }
 }

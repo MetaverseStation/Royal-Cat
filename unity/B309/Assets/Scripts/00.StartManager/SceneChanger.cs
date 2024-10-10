@@ -4,14 +4,27 @@ using UnityEngine.SceneManagement;
 using System;
 
 //SceneManager는 유니티에서 사용하는 이름이기 때문에 SceneChanger로 명명
-public class SceneChanger : Singleton<SceneChanger>
+public class SceneChanger : MonoBehaviour
 {
-    //public static SceneChanger Inst;
+    public static SceneChanger Inst { get; private set; }    
 
     private LoadingManager _loadingManager = null;
     //씬 로딩 완료 콜백함수
     public event Action<string> OnSceneLoadComplete;
 
+    void Awake()
+    {
+        //싱글톤 선언
+        if (Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -131,5 +144,10 @@ public class SceneChanger : Singleton<SceneChanger>
     public void SetLoadingScene()
     {
         SceneManager.LoadScene(GameConfig.loadingScene);
+    }
+
+    public void GoToTitleScene()
+    {
+        StartCoroutine(LoadSceneAsync(GameConfig.titleScene));
     }
 }
