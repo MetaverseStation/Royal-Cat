@@ -114,7 +114,7 @@ public class LoginForm : MonoBehaviour
     private void OnClickLogin()
     {
         //JoinLobby();
-
+        //###############
         string id = _inputID.text;
         string pw = _inputPW.text;
 
@@ -235,7 +235,9 @@ public class LoginForm : MonoBehaviour
             // {
             //     nickname = PlayerPrefs.GetString("Nickname");
             // }
-            if (User.Nickname != null) {
+
+            if (User.Nickname != null)
+            {
                 nickname = User.Nickname;
             }
             else

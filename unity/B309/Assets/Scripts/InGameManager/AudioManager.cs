@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : Singleton<AudioManager>
+public class AudioManager : MonoBehaviour
 {
-    //public static AudioManager instance;
+    public static AudioManager Inst { get; private set; }
 
     // 배경음
     [Header("#BGM")]
@@ -28,6 +28,20 @@ public class AudioManager : Singleton<AudioManager>
     public enum Bgm { Title, Win, InGame }
     public enum Sfx { Attack, Click = 4, FootStep, CollectItem, PlayerDamaged, PlayerDead, MonsterStoneShot, MonsterRangeShot, MonsterCloseAttack, MonsterDead}
 
+
+    private void Awake()
+    {
+        //싱글톤 선언
+        if (Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         Init();

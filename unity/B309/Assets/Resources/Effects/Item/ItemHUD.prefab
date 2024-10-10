@@ -296,14 +296,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: DMG UP!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 75a8ad669311425409a12c21a0a5d88e, type: 2}
   m_sharedMaterial: {fileID: 2006977654966443192, guid: 75a8ad669311425409a12c21a0a5d88e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293643911
+    rgba: 4278190335
   m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

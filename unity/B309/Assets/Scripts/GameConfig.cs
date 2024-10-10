@@ -5,9 +5,7 @@ using UnityEngine;
 using static GameConfig;
 
 public static class GameConfig
-{
-    //#커밋테스트용 주석
-
+{    
     //게임 버전 
     public static readonly string GameVersion = "1.0";
 
@@ -49,6 +47,9 @@ public static class GameConfig
 
     //맵의 개수
     public static int mapCount = 3;
+
+    //튜토리얼 UI
+    public static bool isShownTutorial = false;
 
     //플레이어 컬러
     public enum PlayerColor

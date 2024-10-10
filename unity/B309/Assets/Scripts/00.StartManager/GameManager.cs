@@ -6,8 +6,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
+    public static GameManager Inst { get; private set; }
+
     private GameObject _localPlayer;
     private PhotonView _playerPV;
     private IPunPrefabPool _objPool;
@@ -39,6 +41,20 @@ public class GameManager : Singleton<GameManager>
 
     //게임 관련
     public bool isGaming = false;
+
+    private void Awake()
+    {
+        //싱글톤 선언
+        if (Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -199,7 +215,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (_magneticField != null)
         {
-            _magneticField.SetActive(false);
+            Destroy(_magneticField);
+            //_magneticField.SetActive(false);
         }
     }
 

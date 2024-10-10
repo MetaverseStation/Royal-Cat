@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using ExitGames.Client.Photon;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using ExitGames.Client.Photon.StructWrapping;
+using EpicToonFX;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
@@ -17,10 +18,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public event Action<Dictionary<string, RoomInfo>> OnRoomListUpdated;
 
     //public TypedLobby sqlLobby = new TypedLobby("MySqlLobby", LobbyType.SqlLobby);
-    private Dictionary<string, RoomInfo> _roomDict = new Dictionary<string, RoomInfo>();
-
-    //이벤트 호출 관련       
-    private bool _isRoomToLobby = false;
+    private Dictionary<string, RoomInfo> _roomDict = new Dictionary<string, RoomInfo>();    
 
     //서버 지연시간
     private const float _serverWaitingTime = 3f;
@@ -77,22 +75,23 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         //Debug.Log("Connected To Master!");
         UIManager.Inst.ConnctionFailedPopup(false);
         UIManager.Inst.SetPopup(false);
-        if (_isRoomToLobby)
+
+        if(SceneManager.GetActiveScene().name != GameConfig.titleScene)
         {
-            _isRoomToLobby = false;
             JoinLobby();
-        }
+        }        
     }
     public void Disconnect() => PhotonNetwork.Disconnect();
         
 
     public override void OnDisconnected(DisconnectCause cause)
-    {
-        if(GameManager.Inst != null)
+    {        
+        if (GameManager.Inst != null)
         {
+            SystemManager.Inst.LogoutPlayer();
             GameManager.Inst.ResetPlayerSettings();
-            StartCoroutine(CheckTimeOutConnect());
-        }        
+            //StartCoroutine(CheckTimeOutConnect());
+        }
     }
 
     private IEnumerator CheckTimeOutConnect()
@@ -121,8 +120,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
         yield return new WaitUntil(() => !PhotonNetwork.IsConnected &&
         PhotonNetwork.NetworkClientState == Photon.Realtime.ClientState.Disconnected);
-        PhotonNetwork.Reconnect();
-        _isRoomToLobby = true;
+        PhotonNetwork.Reconnect();        
         Debug.Log("재연결됨");
 
         yield return new WaitForSeconds(3.0f);
@@ -144,7 +142,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     }
 
     public override void OnJoinedLobby()
-    {
+    {        
         StartCoroutine(SceneChanger.Inst.LoadSceneAsync(GameConfig.lobbyScene));
     }
 
@@ -227,19 +225,28 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         JoinLobby();
     }
 
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        UIManager.Inst.SetPopupCustum("접속할 방이 없습니다.", true, null, null, "확인", null);
+        JoinLobby();
+    }
+
     public void LeaveRoom()
     {
+        Debug.Log("방나감 버튼누름");
+
         if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
-        {            
+        {
+            Debug.Log("나감");
             PhotonNetwork.LeaveRoom();
-            _isRoomToLobby = true;
         }
     }
 
     public override void OnLeftRoom()
-    {
+    {        
         base.OnLeftRoom();
-        //Debug.Log("방 나갔음");
+        GameManager.Inst.ResetPlayerSettings();
+        Debug.Log("방 나갔음");
         if (SceneChanger.Inst != null)
         {
             SceneChanger.Inst.SetLoadingScene();
