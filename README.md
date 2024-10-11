@@ -1,4 +1,4 @@
-# Loyal Cat
+# Royal Cat
 
 ## Ⅰ. 프로젝트 소개
 
