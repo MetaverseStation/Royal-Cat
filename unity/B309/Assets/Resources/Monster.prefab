@@ -506,7 +506,7 @@ MonoBehaviour:
   startingHealth: 100
   healthSlider: {fileID: 6791031088594385686}
   healthText: {fileID: 2302713942647827638}
-  _maxHealth: 10000
+  _maxHealth: 10
   lootTable:
     list: []
 --- !u!114 &1091532117138702447
