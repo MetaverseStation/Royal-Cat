@@ -7,6 +7,7 @@ using TMPro;
 public class InGameUIManager : MonoBehaviour
 {
     //싱글톤    
+    public static InGameUIManager Inst { get; private set; }
 
     //#1. 카운트 다운 및 게임 시작 및 종료를 알리는 패널
     public GameObject messagePanel;
@@ -67,8 +68,6 @@ public class InGameUIManager : MonoBehaviour
 
     //#7. 로딩 패널
     public GameObject loadingPanel;
-
-    public static InGameUIManager Inst { get; private set; }
 
     //이 인게임 UI 매니저는 씬이 전환되면 파괴되야 하기 때문에 싱글톤으로만 선언하되 DontDestroy를 할당하지 않음
     private void Awake()
@@ -288,9 +287,6 @@ public class InGameUIManager : MonoBehaviour
 
     public void SetWeaponItemUI(WeaponType weaponType)
     {
-
-        Debug.Log("투사체 아이템 획득");
-
         string path = "UI/Item Img/" + weaponType;
         Sprite newSprite = Resources.Load<Sprite>(path); // 경로: Resources/Prefabs/UI/ItemImg/Skill_arc
         _weaponItemIcon.sprite = newSprite;
@@ -300,9 +296,6 @@ public class InGameUIManager : MonoBehaviour
     // 스킬 아이템 UI 변경
     public void SetSkillItemUI(SkillType skillType)
     {
-
-        Debug.Log("스킬 아이템 획득");
-
         string path = "UI/Item Img/" + skillType;
         Sprite newSprite = Resources.Load<Sprite>(path); // 경로: Resources/Prefabs/UI/ItemImg/Skill_arc
         _skillItemIcon.sprite = newSprite;

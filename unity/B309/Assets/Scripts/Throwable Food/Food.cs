@@ -174,9 +174,7 @@ public class Food : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (collider.CompareTag("Player"))
             {
-                Debug.Log("닿는다");
                 PlayerHealth playerHealth = collider.GetComponent<PlayerHealth>();
-                Debug.Log("플레이어 ID: " + playerHealth.pv.ViewID);
                 if (playerHealth.pv.ViewID / 1000 == foodId / 1000)
                 {
                     continue;
