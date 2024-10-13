@@ -7,6 +7,7 @@ using TMPro;
 public class InGameUIManager : MonoBehaviour
 {
     //싱글톤    
+    public static InGameUIManager Inst { get; private set; }
 
     //#1. 카운트 다운 및 게임 시작 및 종료를 알리는 패널
     public GameObject messagePanel;
@@ -67,8 +68,6 @@ public class InGameUIManager : MonoBehaviour
 
     //#7. 로딩 패널
     public GameObject loadingPanel;
-
-    public static InGameUIManager Inst { get; private set; }
 
     //이 인게임 UI 매니저는 씬이 전환되면 파괴되야 하기 때문에 싱글톤으로만 선언하되 DontDestroy를 할당하지 않음
     private void Awake()
@@ -310,6 +309,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void ShowKillLog(string kill, string killed, string message)
     {
+        Debug.Log("ShowKillLog 호출");
         killLogPanel.SetActive(true);
         _killLogByKill.text = kill;  // 킬 로그 표시
         _killLogByKilled.text = killed;

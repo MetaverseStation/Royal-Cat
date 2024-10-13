@@ -56,7 +56,6 @@ public class PlayerHealth : LivingEntity, IPunObservable
     private void Start()
     {
         nicknameText.text = pv.Owner.NickName;
-        Debug.Log("플레이어 닉네임: " + pv.Owner.NickName);
         _sliderColor = healthSliderColor.color;
 
     }
@@ -93,7 +92,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             }
         }
 
-        if(pv.IsMine && GameManager.Inst.GetPlayer().transform.position.y < -100)
+        if (pv.IsMine && GameManager.Inst.GetPlayer().transform.position.y < -100)
         {
             Die();
         }
@@ -163,13 +162,13 @@ public class PlayerHealth : LivingEntity, IPunObservable
         if (pv.IsMine)
         {
             AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDead);
-            
-           
+
+
             //먹물 제거
             if (BuffHUD.Inst != null)
             {
                 BuffHUD.Inst.SetOctopusBlind(false);
-            }            
+            }
 
             //플레이어 사망처리
             if (!PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey(GameConfig.isDead))
@@ -178,7 +177,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             }
         }
 
-        AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDead);        
+        AudioManager.Inst.PlaySfx(AudioManager.Sfx.PlayerDead);
 
         // 모든 클라이언트에서 킬 로그를 출력하도록 RPC 호출        
         pv.RPC("ShowKillLog", RpcTarget.All, killerName, victimName);
@@ -197,17 +196,20 @@ public class PlayerHealth : LivingEntity, IPunObservable
     [PunRPC]
     public void ShowKillLog(string killerName, string victimName)
     {
-        string killMessage ="["+killerName + "]님이 [" + victimName+"]를 처치!";
+        string killMessage = "[" + killerName + "]님이 [" + victimName + "]님을 처치!";
 
-        
-        //pv.RPC("SendKillLog", pv.Owner, killerName, victimName, killMessage);
+        Debug.Log("killMessage : " + killMessage);
+        // pv.RPC("SendKillLog", pv.Owner, killerName, victimName, killMessage);
+        // pv.RPC("SendKillLog", RpcTarget.All, killerName, victimName, killMessage);
+        InGameUIManager.Inst.ShowKillLog(killerName, victimName, killMessage); // UIManager를 통해 킬 로그 출력
     }
 
-    //[PunRPC]
-    //public void SendKillLog(string killerName, string victimName, string killMessage)
-    //{
+    // [PunRPC]
+    // public void SendKillLog(string killerName, string victimName, string killMessage)
+    // {
+    //     Debug.Log("SendKillLog 호출");
     //    InGameUIManager.Inst.ShowKillLog(killerName, victimName, killMessage); // UIManager를 통해 킬 로그 출력
-    //}
+    // }
 
 
     // 플레이어 체력 슬라이더 및 텍스트 업데이트
@@ -337,7 +339,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             {
                 InGameUIManager.Inst.SetGameOverPanel(true);
             }
-            
+
             //GameObject ghost = Instantiate((GameObject)Resources.Load("GhostCharacter"), transform.position, transform.rotation);
             GameObject ghost = PhotonNetwork.Instantiate("GhostCharacter", transform.position, transform.rotation, 0);
             Camera.main.GetComponent<CameraFollow>().SetTarget(ghost.transform);
