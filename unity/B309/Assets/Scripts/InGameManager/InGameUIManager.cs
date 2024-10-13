@@ -287,9 +287,6 @@ public class InGameUIManager : MonoBehaviour
 
     public void SetWeaponItemUI(WeaponType weaponType)
     {
-
-        Debug.Log("투사체 아이템 획득");
-
         string path = "UI/Item Img/" + weaponType;
         Sprite newSprite = Resources.Load<Sprite>(path); // 경로: Resources/Prefabs/UI/ItemImg/Skill_arc
         _weaponItemIcon.sprite = newSprite;
@@ -299,9 +296,6 @@ public class InGameUIManager : MonoBehaviour
     // 스킬 아이템 UI 변경
     public void SetSkillItemUI(SkillType skillType)
     {
-
-        Debug.Log("스킬 아이템 획득");
-
         string path = "UI/Item Img/" + skillType;
         Sprite newSprite = Resources.Load<Sprite>(path); // 경로: Resources/Prefabs/UI/ItemImg/Skill_arc
         _skillItemIcon.sprite = newSprite;
@@ -309,7 +303,6 @@ public class InGameUIManager : MonoBehaviour
 
     public void ShowKillLog(string kill, string killed, string message)
     {
-        Debug.Log("ShowKillLog 호출");
         killLogPanel.SetActive(true);
         _killLogByKill.text = kill;  // 킬 로그 표시
         _killLogByKilled.text = killed;

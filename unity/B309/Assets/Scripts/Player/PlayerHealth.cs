@@ -198,7 +198,6 @@ public class PlayerHealth : LivingEntity, IPunObservable
     {
         string killMessage = "[" + killerName + "]님이 [" + victimName + "]님을 처치!";
 
-        Debug.Log("killMessage : " + killMessage);
         // pv.RPC("SendKillLog", pv.Owner, killerName, victimName, killMessage);
         // pv.RPC("SendKillLog", RpcTarget.All, killerName, victimName, killMessage);
         InGameUIManager.Inst.ShowKillLog(killerName, victimName, killMessage); // UIManager를 통해 킬 로그 출력
@@ -207,7 +206,6 @@ public class PlayerHealth : LivingEntity, IPunObservable
     // [PunRPC]
     // public void SendKillLog(string killerName, string victimName, string killMessage)
     // {
-    //     Debug.Log("SendKillLog 호출");
     //    InGameUIManager.Inst.ShowKillLog(killerName, victimName, killMessage); // UIManager를 통해 킬 로그 출력
     // }
 
