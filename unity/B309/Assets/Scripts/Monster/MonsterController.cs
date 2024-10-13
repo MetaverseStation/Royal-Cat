@@ -57,11 +57,22 @@ public class MonsterController : LivingEntity, IPunObservable
         if (photonView.IsMine)
         {
             PhotonNetwork.Destroy(gameObject);
-            Transform item = lootTable.GetRandom();
-            if (item != null)
+            
+            // 체력 회복 아이템 30개 생성
+            Vector3 temp = transform.position;
+            for (int j = 0; j < 3; j++)
             {
-                string prefabPath = "Prefabs/SpawnedItem/" + item.gameObject.name;
-                GameObject spawnedItem = PhotonNetwork.Instantiate(prefabPath, transform.position, Quaternion.identity);
+                temp.z = transform.position.z + j;
+                for (float i = 0.0f; i < 3.5f; i += 0.7f)
+                {
+                    temp.x = transform.position.x + i;
+                    PhotonNetwork.Instantiate("Prefabs/SpawnedItem/Health", temp, Quaternion.identity);
+                }
+                for (float i = 0.7f; i < 4.2f; i += 0.7f)
+                {
+                    temp.x = transform.position.x - i;
+                    PhotonNetwork.Instantiate("Prefabs/SpawnedItem/Health", temp, Quaternion.identity);
+                }
             }
         }
     }

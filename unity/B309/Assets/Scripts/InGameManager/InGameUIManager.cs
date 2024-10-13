@@ -13,9 +13,10 @@ public class InGameUIManager : MonoBehaviour
     private TextMeshProUGUI _messageText;
     public GameObject finishPanel;
 
-    //#2. 게임에 필요한 UI를 관리하는 패널(킬로그, 생존자 수, 아이템, 채팅, 타이머)
+    //#2. 게임에 필요한 UI를 관리하는 패널(킬로그, 생존자 수, 아이템, 채팅, 타이머, 자기장)
     public GameObject mainPanel;
     public GameObject killLogPanel;
+    public GameObject magneticFieldPanel;
 
     private TextMeshProUGUI _survivorText; //생존로그
     private TextMeshProUGUI _killLogByKill; //킬로그 Kill
@@ -134,6 +135,8 @@ public class InGameUIManager : MonoBehaviour
         gameOverPanel.SetActive(false);
         gameResultPanel.SetActive(false);
         loadingPanel.SetActive(true);
+        magneticFieldPanel.SetActive(false);
+        killLogPanel.SetActive(false);
     }
 
     void Start()
@@ -260,12 +263,17 @@ public class InGameUIManager : MonoBehaviour
                 {
                     _isMagnetic = true;
                     GameManager.Inst.ActivateMagneticField();
-
+                    StartCoroutine(ShowMagneticFieldPanel(3.0f));
                 }
             }
         }
     }
 
+    private IEnumerator ShowMagneticFieldPanel(float delay) {
+        magneticFieldPanel.SetActive(true);
+        yield return new WaitForSeconds(delay);
+        magneticFieldPanel.SetActive(false);
+    }
     //private void SetLoadingCharacter()
     //{
     //    int idx = UnityEngine.Random.Range(0, 9);

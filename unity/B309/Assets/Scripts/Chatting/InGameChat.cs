@@ -93,7 +93,7 @@ public class InGameChat : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.LocalPlayer.IsMasterClient)
         {
-            string coloredMsg = $"<b><color=#8C8C8C>[Info] {msg}</color></b>";
+            string coloredMsg = $"<b><color=#2F00FF>[Info] {msg}</color></b>";
 
             object content = coloredMsg;
 

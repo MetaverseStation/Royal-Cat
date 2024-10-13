@@ -45,8 +45,8 @@ public class PlayerHand : MonoBehaviour
     // 스킬 아이템 변경을 위한 변수
     public SkillType currentSkillType = SkillType.Normal;
 
-    // 공격 사거리 제한 관련 변수
-    public float limitedAttackRange = 7.5f;
+    // 공격 사거리 제한 관련 변수(포물선)
+    private float _limitedAttackRange = 6f;
 
     // 레이캐스트 조정
     Plane rayPlane;
@@ -160,7 +160,7 @@ public class PlayerHand : MonoBehaviour
         // 0.147초는 뭔가요?
         _lineRenderer.positionCount = (int)(1 / 0.0417f); // positionCount 설정
 
-        for (float index = 0.0f, interval = -0.0417f; interval < 1.0f;)
+        for (float index = 0.0f, interval = -0.0417f; index < _lineRenderer.positionCount;)
         {
             Vector3 theArc = Vector3.Slerp(RelCenter, aimRelCenter, interval += 0.0417f);
             _lineRenderer.SetPosition((int)index++, theArc + center);
@@ -199,11 +199,11 @@ public class PlayerHand : MonoBehaviour
         }
 
         float distance = Vector3.Distance(throwPosition.position, desPosition);
-        if (distance > limitedAttackRange)
+        if (distance > _limitedAttackRange)
         {
             // throwPosition에서 tempPoint 방향으로 제한 사거리만큼 떨어진 지점 계산
             Vector3 direction = (desPosition - throwPosition.position).normalized;
-            desPosition = throwPosition.position + direction * limitedAttackRange;
+            desPosition = throwPosition.position + direction * _limitedAttackRange;
         }
 
         desPosition.y = transform.position.y;
