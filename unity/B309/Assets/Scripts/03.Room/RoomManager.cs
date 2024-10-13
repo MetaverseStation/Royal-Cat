@@ -268,6 +268,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
                     Transform playerNameText = playerCard.transform.Find("PlayerPanel/NameText");
                     playerNameText.GetComponent<TextMeshProUGUI>().text = "";
                     SetReadyUI(playerReadyPanel.gameObject, false);
+                    Transform playerOutLine = playerCard.transform.Find("OutLinePanel");
+                    playerOutLine.gameObject.SetActive(false);
                 }
             }
         }
@@ -417,15 +419,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     //플레이어의 레디 여부 체크
     private bool CheckGameStart()
-    {
-        int roomLimit = PhotonNetwork.CurrentRoom.MaxPlayers;
+    {        
         int readyCount = 0;
         var playerList = PhotonNetwork.CurrentRoom.Players;
         int playerListCount = playerList.Count;
 
-        if (playerListCount < roomLimit)
+        if (playerListCount < 2)
         {
-            UIManager.Inst.SetInformationPopup("모든 플레이어가 입장해야합니다");
+            UIManager.Inst.SetInformationPopup("2명 이상의 플레이어가 필요합니다.");
             return false;
         }
 
@@ -443,7 +444,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             }
         }
 
-        if (readyCount < roomLimit)
+        if (readyCount < playerListCount)
         {
             UIManager.Inst.SetInformationPopup("모든 플레이어가 준비해야합니다");
             return false;
@@ -457,8 +458,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         PlayerShuffleIdx();
 
+        var playerList = PhotonNetwork.CurrentRoom.Players;
+        int playerListCount = playerList.Count;
+
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
+        PhotonNetwork.CurrentRoom.MaxPlayers = playerListCount;
 
         // 인덱스에 맞는 Scene을 로드
         if (_mapIndex >= 0 && _mapIndex < mapScenes.Length)

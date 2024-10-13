@@ -230,12 +230,6 @@ public class LoginForm : MonoBehaviour
 
         if (string.IsNullOrEmpty(nickname))
         {
-            // // 로그인 시 저장된 닉네임 할당
-            // if (PlayerPrefs.HasKey("Nickname"))
-            // {
-            //     nickname = PlayerPrefs.GetString("Nickname");
-            // }
-
             if (User.Nickname != null)
             {
                 nickname = User.Nickname;
