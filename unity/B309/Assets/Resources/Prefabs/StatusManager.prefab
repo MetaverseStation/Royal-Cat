@@ -47,9 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffUI: {fileID: 231395619210556636, guid: daf94bf0820f02e4286ddc0e72c8e1f2, type: 3}
   auraParticle: {fileID: 147642, guid: 83be824de0a910249b06a6cf8a1f002d, type: 3}
-  jellyfishStunPrefab: {fileID: 109542, guid: 2ed06ab528b7c474eb9246421cd7c791, type: 3}
-  turtleHatPrefab: {fileID: 416378288012792700, guid: 225e046e709de624583d993e1aed0d3b, type: 3}
-  crabBloodPrefab: {fileID: 153674, guid: 98e35bc5094f25441a4c3b405abf1870, type: 3}
+  isConfusing: 0
   octopusBlind: {fileID: 7750613042312437779}
   octopusInkList:
   - {fileID: 7863808389303235095}

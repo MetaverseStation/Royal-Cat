@@ -260,6 +260,11 @@ public class BuffHUD : MonoBehaviour
         }
     }
 
+    public void OctopusOff()
+    {
+        octopusBlind.SetActive(false);
+    }
+
     IEnumerator ShowOctopusEffectCoroutine()
     {
         _octopusTimer = 0f;

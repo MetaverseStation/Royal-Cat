@@ -168,6 +168,7 @@ public class PlayerHealth : LivingEntity, IPunObservable
             if (BuffHUD.Inst != null)
             {
                 BuffHUD.Inst.SetOctopusBlind(false);
+                BuffHUD.Inst.OctopusOff();
             }
 
             //플레이어 사망처리
