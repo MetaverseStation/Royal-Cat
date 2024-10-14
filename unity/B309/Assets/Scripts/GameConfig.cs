@@ -7,7 +7,7 @@ using static GameConfig;
 public static class GameConfig
 {    
     //게임 버전 
-    public static readonly string GameVersion = "1.0";
+    public static readonly string GameVersion = "1.1";
 
     //화면 해상도
     //public static readonly int Width = 2560;

@@ -332,7 +332,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
         AudioManager.Inst.PlaySfx(AudioManager.Sfx.Click);
         //초기값으로 설정        
-        int maxPlayer = int.Parse(_maxPlayerDropdown.options[_maxPlayerDropdown.value].text);
+        //int maxPlayer = int.Parse(_maxPlayerDropdown.options[_maxPlayerDropdown.value].text);
+        int maxPlayer = 6;
         //토글 false상태        
         //방 이름, 인원 수, 비공개 여부
         //Debug.Log(_roomNameText.text + " " + maxPlayer+" "+_isPrivateToggle+"로 방 생성 요청");

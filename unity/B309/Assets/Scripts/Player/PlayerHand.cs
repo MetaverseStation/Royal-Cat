@@ -328,7 +328,7 @@ public class PlayerHand : MonoBehaviour
             //샷건은 탄당 데미지의 60퍼센트만 적용
             float dmg = (int)((damage / 100) * 60f);
 
-            GameObject food = CreateFoodObj(throwPosition.position, rotation, dmg, _distance / 2f);
+            GameObject food = CreateFoodObj(throwPosition.position, rotation, dmg, _distance / 1.5f);
         }
     }
 
