@@ -71,7 +71,7 @@
 <br/>
 
 #### 인게임 화면
-<img src="./docs/InGame.PNG" alt="InGame" width="600px">
+<img src="./docs/InGame.png" alt="InGame" width="600px">
 <br/>
 <br/>
 
