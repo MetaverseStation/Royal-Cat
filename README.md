@@ -33,14 +33,16 @@
 
 ## Ⅱ. 게임 소개
 
+<br>
+
 #### [로얄캣 홈페이지 주소](http://j11b309.p.ssafy.io/) 
+<br>
 
 ### 01. 게임 화면
 
 #### 시작 화면
 
 <img src="./docs/Title.gif" alt="Title" width="600px">
-<br/>
 - Start 버튼 클릭 시 로그인 화면으로 넘어감
 
 <br/>
@@ -54,9 +56,7 @@
 #### 로비 화면
 
 <img src="./docs/Lobby.PNG" alt="Lobby" width="600px">
-<br/>
 - 로비에서 대기방 생성 및 찾기 가능
-<br/>
 - 공개방과 비밀방으로 구분되며 비밀방은 비밀번호를 입력해야 입장 가능
 
 <br/>
@@ -64,11 +64,8 @@
 #### 대기방 화면
 
 <img src="./docs/Room.PNG" alt="Room" width="600px">
-<br/>
 - 방 인원들은 Ready 버튼으로 게임 준비
-<br/>
 - 방장은 인원들이 모두 Ready 버튼 클릭 시 Start 버튼으로 게임 시작 가능
-<br/>
 - 플레이할 맵과 캐릭터 스킨을 고를 수 있음
 
 <br/>
@@ -83,7 +80,6 @@
 #### 플레이어 이동
 
 <img src="./docs/move.gif" alt="move" width="300px">
-<br/>
  WASD 또는 방향키를 통해 상하좌우로 이동 가능
 
 <br/>
@@ -91,7 +87,6 @@
 #### 구르기
 
 <img src="./docs/dodge.gif" alt="dodge" width="300px">
-<br/>
  SPACE BAR 키를 통해 빠른 속도로 구르기 가능
 
 <br/>
@@ -99,7 +94,6 @@
 #### 공격
 
 <img src="./docs/attack.gif" alt="attack" width="300px">
-<br/>
  마우스로 투사체를 조준 후 클릭하여 발사 가능, 상대방 피격 시 데미지 부여
 
 <br/>
@@ -109,7 +103,6 @@
 #### 아이템 상자
 
 <img src="./docs/itemBox.gif" alt="itemBox" width="300px">
-<br/>
 아이템 상자를 피격하여 투사체, 버프 아이템 획득
 
 <br/>
@@ -117,14 +110,12 @@
 #### 부쉬
 
 <img src="./docs/bush.gif" alt="bush" width="300px">
-<br/>
 부쉬 진입 시 타 플레이어에게 보이지 않는 은신 기능 제공
 
 <br/>
 
 #### 몬스터
 
-<br/>
 플레이어를 괴롭히며 처치 시 스킬샷과 같은 아이템 획득
 
 <br/>
