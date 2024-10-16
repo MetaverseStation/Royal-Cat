@@ -190,7 +190,7 @@
 
 ## V. 팀원 소개 및 회고
 
-<img src="./docs/Team.PNG" alt="LoyalCat_Team" width="600px">
+<img src="./docs/Team.png" alt="Team" width="600px">
 
 ### 진현지
 
