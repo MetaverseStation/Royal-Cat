@@ -84,6 +84,32 @@ public class PlayerRPC : MonoBehaviour, IPunObservable
     }
 
 
+    [PunRPC]
+    private void ApplyKnockBack(int playerViewID)
+    {
+        PhotonView targetView = PhotonView.Find(playerViewID);
+        if (targetView != null)
+        {
+            Rigidbody rb = targetView.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                //isKnockBack = true;
+                    
+                // 투사체의 진행 방향을 사용하여 넉백 방향 설정 (transform.forward로 변경)
+                Vector3 knockbackDirection = transform.forward.normalized;
+
+                // Y축으로 충분히 뜨도록 Vector3.up 값 조정
+                Vector3 knockbackForceVector = knockbackDirection * 2f + Vector3.up * 2f;  // Y축 값을 증가
+
+                // 넉백 힘 적용 (ForceMode.Impulse 사용)
+                targetView.GetComponent<Animator>().SetTrigger("KnockBack");
+                rb.AddForce(knockbackForceVector, ForceMode.VelocityChange);
+            }
+        }
+
+        //isKnockBack = false;
+    }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         //throw new System.NotImplementedException();

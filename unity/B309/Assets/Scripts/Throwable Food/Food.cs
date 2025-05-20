@@ -14,6 +14,8 @@ public class Food : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject parabolicFoodCollisionEffect;
     private Rigidbody _foodRigidbody;
 
+    protected IHitEffect hitEffect;
+
 
     //private float _minSpeed = 5f;
     //private float _maxSpeed = 5f;
@@ -132,12 +134,8 @@ public class Food : MonoBehaviourPunCallbacks, IPunObservable
         ContactPoint contact = collision.contacts[0];
         if (photonView.IsMine)
         {
-            //Debug.Log("투사체 ID: " + photonView.ViewID);
-            //Debug.Log("투사체를 던진 플레이어 ID: " + photonView.OwnerActorNr);
-
             HandleCollision(contact.point, contact.normal, photonView.ViewID);
             
-
             //투사체 제거            
             photonView.RPC("DestroyFoodRPC", RpcTarget.All);
         }
@@ -179,6 +177,9 @@ public class Food : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     continue;
                 }
+
+                hitEffect?.Execute(collider.gameObject);
+
                 if (playerHealth != null)
                 {
                     int damageId = (foodId / 1000) * 1000 + 1;
